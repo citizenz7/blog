@@ -1,6 +1,9 @@
 # BLOG
 `BLOG` is a blog based system made with Symfony 5 framework.
 
+**WORK IN PROGRESS - PROJECT WON'T FULLY WORK**
+See TO DO section at the bottom.
+
 ## Template
 Free template (HTML + CSS) is from https://bootstrapmade.com (Moderna)
 
