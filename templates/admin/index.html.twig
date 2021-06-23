@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+
+<main id="main">
+
+    <!-- ======= Blog Section ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Blog</h2>
+
+                <ol>
+                    <li><a href="{{ path('home') }}">Home</a></li>
+                    <li>Admin Index</li>
+                </ol>
+            </div>
+
+        </div>
+    </section><!-- End Blog Section -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <h2 class="text-center fw-bold card py-2 mb-4">DASHBOARD</h2>
+            <div class="row d-flex justify-content-center mb-5">
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="d-grid gap-2 card-body">
+                            <h5 class="card-title fw-bold">ARTICLES</h5>
+                            <a href="{{ path('article_index') }}" class="btn btn-primary fw-bold p-3 fs-6">Articles list</a>
+                            <br>
+                            <a href="{{ path('article_new') }}" class="btn btn-success fw-bold p-3 fs-6">New article</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="d-grid gap-2 card-body">
+                            <h5 class="card-title fw-bold">CATEGORIES</h5>
+                            <a href="{{ path('category_admin_index') }}" class="btn btn-info fw-bold p-3 fs-6">Catégories list</a>
+                            <br>
+                            <a href="{{ path('category_new') }}" class="btn btn-success fw-bold p-3 fs-6">New category</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="d-grid gap-2 card-body">
+                            <h5 class="card-title fw-bold">TAGS</h5>
+                            <a href="{{ path('tag_index') }}" class="btn btn-warning fw-bold p-3 fs-6">Tags list</a>
+                            <br>
+                            <a href="{{ path('tag_new') }}" class="btn btn-success fw-bold p-3 fs-6">New tag</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="d-grid gap-2 card-body">
+                            <h5 class="card-title fw-bold">COMMENTS</h5>
+                            <a href="{{ path('comment_index') }}" class="btn btn-warning fw-bold p-3 fs-6">Comments list</a>
+                            <br>
+                            <a href="" class="btn btn-outline-success fw-bold p-3 fs-6">Other</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+{% endblock %}

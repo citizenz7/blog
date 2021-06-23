@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Category{% endblock %}
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Blog Section ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Blog</h2>
+
+                <ol>
+                    <li><a href="{{ path('home') }}">Home</a></li>
+                    <li><a href="{{ path('category_index') }}">Category</a></li>
+                    <li>{{ category.title }}</li>
+                </ol>
+            </div>
+
+        </div>
+    </section><!-- End Blog Section -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row py-5">
+
+                <div class="col mb-4">
+                    <h1>Category</h1>
+
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Id</th>
+                                <td>{{ category.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Title</th>
+                                <td>{{ category.title }}</td>
+                            </tr>
+                            <tr>
+                                <th>Slug</th>
+                                <td>{{ category.slug }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="row mt-5">
+                        <div class="col">
+                            <a class="btn btn-sm btn-warning" href="{{ path('category_edit', {'id': category.id}) }}">edit category</a>
+                            <button class="btn btn-sm btn-secondary" type="reset">Reset</button>
+                            <a class="btn btn-sm btn-primary" href="{{ path('category_index') }}">back to list</a>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            {{ include('category/_delete_form.html.twig') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}myblog.com: welcome!{% endblock %}
+
+{% block body %}
+
+<main id="main">
+
+    <!-- ======= Blog Section ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Blog</h2>
+
+                <ol>
+                    <li>Home</li>
+                </ol>
+            </div>
+
+        </div>
+    </section><!-- End Blog Section -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+
+                <div class="col-lg-8 entries">
+
+                    {% for art in articles %}
+
+                        <article class="entry">
+
+                            <div class="entry-img">
+                                <img src="{{ art.image }}" alt="" class="img-fluid">
+                            </div>
+
+                            <div class="mb-2">
+                                {% for c in art.category %}
+                                    <span class="badge bg-secondary fs-6">{{ c.title }}</span>
+                                {% endfor %}
+                            </div>
+
+                            <div class="mb-3">
+                                {% for t in art.tag %}
+                                    <button class="btn btn-sm btn-outline-primary p-1" style="font-size: 11px;">{{ t.title }}</button>
+                                {% endfor %}
+                            </div>
+
+                            <h2 class="entry-title">
+                                <a href="{{ path('article_show', {'slug': art.slug}) }}">{{ art.title }}</a>
+                            </h2>
+
+                            <div class="entry-meta">
+                                <ul>
+                                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="">Posted by {{ art.author }}</a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="">Posted on {{ art.createdAt|date("F jS \\a\\t g:ia") }}</a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="">12 Comments</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="entry-content">
+                                <p>
+                                    {{ art.content|slice(0,250)|raw }}...
+                                </p>
+                                <div class="read-more">
+                                    <a href="{{ path('article_show', {'slug': art.slug}) }}">Read More</a>
+                                </div>
+                            </div>
+
+                        </article><!-- End blog entry -->
+
+                    {% endfor %}
+
+                    <div class="pagination justify-content-center px-2 mt-4">
+                        {{ knp_pagination_render(articles) }}
+                    </div>
+
+                </div><!-- End blog entries list -->
+
+                {% block sidebar %}
+                    {{ sidebar() }}
+                {% endblock %}
+
+            </div>
+
+        </div>
+    </section><!-- End Blog Section -->
+
+</main><!-- End #main -->
+
+{% endblock %}

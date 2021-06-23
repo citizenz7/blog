@@ -1,0 +1,6 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-sm btn-success">{{ button_label|default('Save') }}</button> 
+    <button class="btn btn-sm btn-secondary" type="reset">reset</button> 
+    <a class="btn btn-sm btn-primary" href="{{ path('user_index') }}">back to list</a>
+{{ form_end(form) }}

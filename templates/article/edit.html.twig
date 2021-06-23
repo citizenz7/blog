@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Article{% endblock %}
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Blog Section ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Blog</h2>
+
+                <ol>
+                    <li><a href="{{ path('home') }}">Home</a></li>
+                    <li><a href="{{ path('admin') }}">Admin</a></li>
+                    <li>Edit Article</li>
+                </ol>
+            </div>
+
+        </div>
+    </section><!-- End Blog Section -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row d-flex justify-content-center mb-5">
+                <div class="col">
+                    <h1>Edit Article</h1>
+
+                    {{ include('article/_form.html.twig', {'button_label': 'Update'}) }}
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}
