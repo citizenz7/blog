@@ -1896,7 +1896,7 @@ section {
 .blog .blog-comments .comment.comment-reply {
   margin-left: 30px;
   padding-left:15px;
-  border-left: 0.3rem solid;
+  border-left: 0.3rem solid #32a1ce;
 }
 
 .blog .blog-comments .reply-form {
