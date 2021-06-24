@@ -68,7 +68,7 @@ class sidebarExtension extends AbstractExtension
         $articles = $this->articleRepository->popularArticles();
         $articlesAll = $this->articleRepository->findAll();
         $categories = $this->categoryRepository->sidebarCategories();
-        $categoriesAll = $this->categoryRepository->findAll();
+        $categoriesAll = $this->categoryRepository->sidebarCategoriesAll();
         $users = $this->userRepository->findAll();
         $views = $this->articleRepository->totalViews();
         $tags = $this->tagRepository->findAll();

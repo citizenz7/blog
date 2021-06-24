@@ -15,6 +15,13 @@ Free template (HTML + CSS) is from https://bootstrapmade.com (Moderna)
 * Mail server (registration, contact, ...)
 
 ## features 
+### Languages and frameworks
+* PHP 7.4.3
+* MySQL (MariaDB)
+* HTML / CSS
+* Javascript (Aos, Glightbox, Isotope, Validate, Purecounter, swipper, Waypoints, Bootstrap)
+* Bootstrap (v5)
+* Google fonts (Open Sans)
 ### Entities
 * articles
 * comments
@@ -64,3 +71,4 @@ Free template (HTML + CSS) is from https://bootstrapmade.com (Moderna)
     * about
     * blog-single
     * contact
+* HTML meta, keywords and description

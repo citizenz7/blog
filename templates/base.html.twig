@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>{% block title %}Welcome to my blog!{% endblock %}</title>
+    <title>{% block title %}{{ site_name }}{% endblock %}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -45,7 +45,12 @@
         <div class="container d-flex justify-content-between align-items-center">
 
             <div class="logo">
-                <h1 class="text-light"><a href="{{ path('home') }}"><span>Moderna</span></a></h1>
+                <h1 class="text-light">
+                    <img src="{{ asset('img/logo.png') }}" alt="{{ site_name }}" class="img-fluid float-start me-2" style="max-width: 30px; width: 100%;">
+                    <a href="{{ path('home') }}">
+                        <span>{{ site_name }}</span>
+                    </a>
+                </h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
             </div>
@@ -53,7 +58,7 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a href="{{ path('home') }}">Home</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">About</a></li>
                     <!--
                     <li><a href="services.html">Services</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
@@ -81,7 +86,7 @@
                         </ul>
                     </li>
                     -->
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Contact</a></li>
 
                     {% if app.user %}
                         <li class="dropdown">
@@ -185,6 +190,7 @@
                             <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
                             <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
                         </div>
+
                     </div>
 
                 </div>

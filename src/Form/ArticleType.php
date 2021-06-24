@@ -5,13 +5,13 @@ namespace App\Form;
 use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\Tag;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ArticleType extends AbstractType
 {
@@ -24,7 +24,7 @@ class ArticleType extends AbstractType
                     'class' => 'form-control mb-3'
                 ]
             ])
-            ->add('content', TextareaType::class, [
+            ->add('content', CKEditorType::class, [
                 'label' => 'Content',
                 'attr' => [
                     'class' => 'form-control mb-3',

@@ -1,6 +1,15 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
 
+    globals:
+        site_name: 'WonderfullBlog'
+        site_name_full: 'My Wonderfull Blog'
+        site_url: 'wonderfullblog.com'
+        site_url_full: 'https://www.wonderfullblog.com'
+        site_mail: 'contact@wonderfullblog.com'
+        site_author: 'citizenz7'
+        site_version: '1.0.1'
+
 when@test:
     twig:
         strict_variables: true

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}myblog.com: welcome!{% endblock %}
+{% block title %}{{ site_name }}: welcome!{% endblock %}
 
 {% block body %}
 
@@ -39,13 +39,17 @@
 
                             <div class="mb-2">
                                 {% for c in art.category %}
-                                    <span class="badge bg-secondary fs-6">{{ c.title }}</span>
+                                    <a href="{{ path('category_show', {'slug': c.slug}) }}">
+                                        <span class="badge bg-secondary fs-6">{{ c.title }}</span>
+                                    </a>
                                 {% endfor %}
                             </div>
 
                             <div class="mb-3">
                                 {% for t in art.tag %}
-                                    <button class="btn btn-sm btn-outline-primary p-1" style="font-size: 11px;">{{ t.title }}</button>
+                                    <a href="{{ path('tag_show', {'slug': t.slug}) }}">
+                                        <button class="btn btn-sm btn-outline-primary p-1" style="font-size: 11px;">{{ t.title }}</button>
+                                    </a>
                                 {% endfor %}
                             </div>
 
