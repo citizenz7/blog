@@ -35,10 +35,8 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Title</th>
-                                <th width="13%">Catégories</th>
                                 <th width="12%">Created at</th>
                                 <th width="12%">Updated at</th>
-                                <th width="10%">Tags</th>
                                 <th>Active</th>
                                 <th width="9%"></th>
                                 <th width="5%"></th>
@@ -49,18 +47,8 @@
                             <tr>
                                 <td>{{ article.id }}</td>
                                 <td>{{ article.title }}</td>
-                                <td>
-                                    {% for c in article.category %}
-                                        <span class="badge bg-primary">{{ c.title }}</span>
-                                    {% endfor %}
-                                </td>
                                 <td class="small">{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                                 <td class="small">{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                                <td>
-                                    {% for t in article.tag %}
-                                        <span class="badge bg-secondary">{{ t.title }}</span>
-                                    {% endfor %}
-                                </td>
                                 <td class="small">{{ article.isActive ? 'Yes' : 'No' }}</td>
                                 <td>
                                     <a class="btn btn-sm btn-info" href="{{ path('article_show', {'slug': article.slug}) }}">show</a>
@@ -80,6 +68,9 @@
 
                     <a class="btn btn-success" href="{{ path('article_new') }}">Create new</a>
                 </div>
+            </div>
+            <div class="pagination justify-content-center px-2 mt-4">
+                {{ knp_pagination_render(articles) }}
             </div>
         </div>
     </section>

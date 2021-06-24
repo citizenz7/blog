@@ -1773,6 +1773,12 @@ section {
   display: inline-block;
 }
 
+.blog .entry .entry-footer .cats li + li::before {
+  padding-right: 6px;
+  color: #6c757d;
+  content: ",";
+}
+
 .blog .entry .entry-footer .tags {
   list-style: none;
   display: inline;
@@ -1844,7 +1850,7 @@ section {
 }
 
 .blog .blog-comments .comment {
-  margin-top: 30px;
+  margin-top: 10px;
   position: relative;
 }
 
@@ -1888,11 +1894,11 @@ section {
 }
 
 .blog .blog-comments .comment.comment-reply {
-  padding-left: 40px;
+  padding-left: 30px;
 }
 
 .blog .blog-comments .reply-form {
-  margin-top: 30px;
+  margin-top: 10px;
   padding: 30px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }

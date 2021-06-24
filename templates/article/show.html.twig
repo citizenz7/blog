@@ -30,6 +30,13 @@
 
                 <div class="col-lg-8 entries">
 
+                    {% for message in app.flashes('success') %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+
                     <article class="entry entry-single">
 
                         <div class="entry-img">
@@ -42,12 +49,18 @@
 
                         <div class="entry-meta">
                             <ul>
-                                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
-                                        href="">{{ article.author }}</a></li>
-                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
-                                        href="">{{ article.createdAt|date("F jS \\a\\t g:ia") }}</a></li>
-                                <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a
-                                        href="">12 Comments</a></li>
+                                <li class="d-flex align-items-center">
+                                    <i class="bi bi-person"></i>
+                                    <a href="">{{ article.author }}</a>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="bi bi-clock"></i>
+                                    <a href="">{{ article.createdAt|date("F jS \\a\\t g:ia") }}</a>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="bi bi-chat-dots"></i>
+                                    <a href="">{{ article.comment|length }} Comments</a>
+                                </li>
                             </ul>
                         </div>
 
@@ -58,62 +71,118 @@
                         <div class="entry-footer">
                             <i class="bi bi-folder"></i>
                             <ul class="cats">
-                                <li><a href="#">Business</a></li>
+                                {% for c in article.category %}
+                                <li><a href="{{ path('category_show', {'slug': c.slug}) }}">{{ c.title }}</a></li>
+                                {% endfor %}
                             </ul>
 
                             <i class="bi bi-tags"></i>
                             <ul class="tags">
-                                <li><a href="#">Creative</a></li>
-                                <li><a href="#">Tips</a></li>
-                                <li><a href="#">Marketing</a></li>
+                                {% for t in article.tag %}
+                                <li><a href="{{ path('tag_show', {'slug': t.slug}) }}">{{ t.title }}</a></li>
+                                {% endfor %}
                             </ul>
                         </div>
 
                     </article><!-- End blog entry -->
 
                     <div class="blog-author d-flex align-items-center">
-                        <img src="{{ asset('img/blog/blog-author.jpg') }}" class="rounded-circle float-left" alt="">
+                        <img src="{{ article.author.image }}" class="rounded-circle float-left" alt="">
                         <div>
-                            <h4>Jane Smith</h4>
+                            <h4>{{ article.author.username }}</h4>
                             <div class="social-links">
-                                <a href="https://twitters.com/#"><i class="bi bi-twitter"></i></a>
-                                <a href="https://facebook.com/#"><i class="bi bi-facebook"></i></a>
-                                <a href="https://instagram.com/#"><i class="biu bi-instagram"></i></a>
+                                {% if article.author.twitter %}
+                                <a href="{{ article.author.twitter }}"><i class="bi bi-twitter"></i></a>
+                                {% endif %}
+                                {% if article.author.facebook %}
+                                <a href="{{ article.author.facebook }}"><i class="bi bi-facebook"></i></a>
+                                {% endif %}
+                                {% if article.author.instagram %}
+                                <a href="{{ article.author.instagram }}"><i class="biu bi-instagram"></i></a>
+                                {% endif %}
                             </div>
                             <p>
-                                Itaque quidem optio quia voluptatibus dolorem dolor. Modi eum sed possimus accusantium.
-                                Quas repellat voluptatem officia numquam sint aspernatur voluptas. Esse et accusantium
-                                ut unde voluptas.
+                                {{ article.author.presentation }}
                             </p>
                         </div>
                     </div><!-- End blog author bio -->
 
                     <div class="blog-comments">
 
-                        <h4 class="comments-count">8 Comments</h4>
+                        <h4 class="comments-count">{{ article.comment|length }} comments</h4>
 
+                        <!-- Comments -->
+                            {% for comment in article.comment %}
+
+                                {% if comment.parent == null %}
+                                    <div class="comment">
+                                        <p class="lead">Comment #{{ loop.index }}</p>
+
+                                        <div class="d-flex">
+                                            <div class="comment-img"><i class="bi bi-person-circle"></i></div>
+                                            <div>
+                                                <h5>
+                                                    {{ comment.nickname }}
+                                                    <a href="#reply-comment" data-reply data-id={{ comment.id }} class="reply">
+                                                        <i class="bi bi-reply-fill"></i> Reply
+                                                    </a>
+                                                </h5>
+                                                <time datetime="{{ comment.createdAt|date("F jS \\a\\t g:ia") }}">
+                                                    {{ comment.createdAt|date("F jS \\a\\t g:ia") }}
+                                                </time>
+                                                <p>
+                                                    {{ comment.content|raw }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="comment-reply" class="comment comment-reply">
+                                        <div class="d-flex">
+                                            {# show reply #}
+                                            {% for reply in comment.replie %}
+                                                <div class="comment-img">
+                                                    <i class="bi bi-person-circle"></i>
+                                                </div>
+                                                <h5>{{ reply.nickname }}</h5>
+                                                <p>
+                                                    <time datetime="{{ reply.createdAt|date("F jS \\a\\t g:ia") }}">
+                                                        {{ reply.createdAt|date("F jS \\a\\t g:ia") }}
+                                                    </time>
+                                                </p>
+                                                <p>
+                                                    {{ reply.content|raw }}
+                                                </p>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                                {#
+                                <!-- Reply to message -->
+                                <div class="comment comment-reply">
+                                    <div class="d-flex">
+                                        <div class="comment-img">
+                                            <img src="IMAGE" alt="TITLE">
+                                        </div>
+                                        <div>
+                                            <h5><a href="">AUTHOR</a> <a href="REPLY" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                                            DATE
+                                            <p>
+                                                CONTENT
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div><!-- //reply -->
+                                #}
+                            {% endfor %}
+
+                        {#
                         <div id="comment-1" class="comment">
-                            <div class="d-flex">
-                                <div class="comment-img"><img src="{{ asset('img/blog/comments-1.jpg') }}" alt=""></div>
-                                <div>
-                                    <h5><a href="">Georgia Reader</a> <a href="#" class="reply"><i
-                                                class="bi bi-reply-fill"></i> Reply</a></h5>
-                                    <time datetime="2020-01-01">01 Jan, 2020</time>
-                                    <p>
-                                        Et rerum totam nisi. Molestiae vel quam dolorum vel voluptatem et et. Est ad aut
-                                        sapiente quis molestiae est qui cum soluta.
-                                        Vero aut rerum vel. Rerum quos laboriosam placeat ex qui. Sint qui facilis et.
-                                    </p>
-                                </div>
-                            </div>
-                        </div><!-- End comment #1 -->
-
-                        <div id="comment-2" class="comment">
                             <div class="d-flex">
                                 <div class="comment-img"><img src="{{ asset('img/blog/comments-2.jpg') }}" alt=""></div>
                                 <div>
-                                    <h5><a href="">Aron Alvarado</a> <a href="#" class="reply"><i
-                                                class="bi bi-reply-fill"></i> Reply</a></h5>
+                                    <h5><a href="">Aron Alvarado</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
                                     <time datetime="2020-01-01">01 Jan, 2020</time>
                                     <p>
                                         Ipsam tempora sequi voluptatem quis sapiente non. Autem itaque eveniet saepe.
@@ -126,8 +195,7 @@
                                 <div class="d-flex">
                                     <div class="comment-img"><img src="{{ asset('img/blog/comments-3.jpg') }}" alt=""></div>
                                     <div>
-                                        <h5><a href="">Lynda Small</a> <a href="#" class="reply"><i
-                                                    class="bi bi-reply-fill"></i> Reply</a></h5>
+                                        <h5><a href="">Lynda Small</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
                                         <time datetime="2020-01-01">01 Jan, 2020</time>
                                         <p>
                                             Enim ipsa eum fugiat fuga repellat. Commodi quo quo dicta. Est ullam
@@ -150,8 +218,7 @@
                                     <div class="d-flex">
                                         <div class="comment-img"><img src="{{ asset('img/blog/comments-4.jpg') }}" alt=""></div>
                                         <div>
-                                            <h5><a href="">Sianna Ramsay</a> <a href="#" class="reply"><i
-                                                        class="bi bi-reply-fill"></i> Reply</a></h5>
+                                            <h5><a href="">Sianna Ramsay</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
                                             <time datetime="2020-01-01">01 Jan, 2020</time>
                                             <p>
                                                 Et dignissimos impedit nulla et quo distinctio ex nemo. Omnis quia
@@ -166,48 +233,14 @@
 
                             </div><!-- End comment reply #1-->
 
-                        </div><!-- End comment #2-->
+                        </div><!-- End comment #1-->
+                        #}
 
-                        <div id="comment-3" class="comment">
-                            <div class="d-flex">
-                                <div class="comment-img"><img src="{{ asset('img/blog/comments-5.jpg') }}" alt=""></div>
-                                <div>
-                                    <h5><a href="">Nolan Davidson</a> <a href="#" class="reply"><i
-                                                class="bi bi-reply-fill"></i> Reply</a></h5>
-                                    <time datetime="2020-01-01">01 Jan, 2020</time>
-                                    <p>
-                                        Distinctio nesciunt rerum reprehenderit sed. Iste omnis eius repellendus quia
-                                        nihil ut accusantium tempore. Nesciunt expedita id dolor exercitationem
-                                        aspernatur aut quam ut. Voluptatem est accusamus iste at.
-                                        Non aut et et esse qui sit modi neque. Exercitationem et eos aspernatur. Ea est
-                                        consequuntur officia beatae ea aut eos soluta. Non qui dolorum voluptatibus et
-                                        optio veniam. Quam officia sit nostrum dolorem.
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div><!-- End comment #3 -->
-
-                        <div id="comment-4" class="comment">
-                            <div class="d-flex">
-                                <div class="comment-img"><img src="{{ asset('img/blog/comments-6.jpg') }}" alt=""></div>
-                                <div>
-                                    <h5><a href="">Kay Duggan</a> <a href="#" class="reply"><i
-                                                class="bi bi-reply-fill"></i> Reply</a></h5>
-                                    <time datetime="2020-01-01">01 Jan, 2020</time>
-                                    <p>
-                                        Dolorem atque aut. Omnis doloremque blanditiis quia eum porro quis ut velit
-                                        tempore. Cumque sed quia ut maxime. Est ad aut cum. Ut exercitationem non in
-                                        fugiat.
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div><!-- End comment #4 -->
-
-                        <div class="reply-form">
+                        <div id="reply-comment" class="reply-form">
                             <h4>Leave a Reply</h4>
-                            <p>Your email address will not be published. Required fields are marked * </p>
+                            <p>Your email address will not be published.</p>
+                            {{ form(commentForm) }}
+                            {#
                             <form action="">
                                 <div class="row">
                                     <div class="col-md-6 form-group">
@@ -230,8 +263,8 @@
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Post Comment</button>
-
                             </form>
+                            #}
 
                         </div>
 
@@ -240,7 +273,7 @@
                 </div><!-- End blog entries list -->
 
                 {% block sidebar %}
-                    {{ sidebar() }}
+                {{ sidebar() }}
                 {% endblock %}
 
                 <!--
@@ -310,4 +343,17 @@
     </section>
     -->
 </main>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    window.onload = () => {
+        // Listener event on each Reply button
+        document.querySelectorAll("[data-reply]").forEach(element => {
+            element.addEventListener("click", function (){
+                document.querySelector("#comment_parentid").value = this.dataset.id;
+            });
+        });
+    }
+</script>
 {% endblock %}

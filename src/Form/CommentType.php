@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -19,36 +20,45 @@ class CommentType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
-                'label' => 'Votre e-mail',
+                'label' => false,
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control mb-3',
+                    'placeholder' => 'Your email address'
                 ]
             ])
             ->add('nickname', TextType::class, [
-                'label' => 'Votre pseudo',
+                'label' => false,
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control mb-3',
+                    'placeholder' => 'Your nick'
                 ]
             ])
             ->add('content', TextareaType::class, [
-                'label' => 'Votre commentaire',
+                'label' => false,
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control mb-3',
+                    'placeholder' =>'Your comment'
                 ]
             ])
+
             //->add('is_active')
             //->add('created_at')
+            //->add('article')
+
             ->add('rgpd', CheckboxType::class, [
-                'label' => 'Validez le RGPD',
+                'label' => 'Agree terms',
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'mx-2 mb-3'
                 ]
             ])
-            //->add('article')
             ->add('parentid', HiddenType::class, [
                 'mapped' => false
             ])
-            ->add('envoyer', SubmitType::class)
+            ->add('sendMessage', SubmitType::class, [
+                'attr' => [
+                    'class' => 'btn btn-primary'
+                ]
+            ])
         ;
     }
 

@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Comment;
 use App\Form\ArticleType;
+use App\Form\CommentType;
+use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -73,18 +76,50 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/article/{slug}", name="article_show", methods={"GET"})
+     * @Route("/article/{slug}", name="article_show", methods={"GET","POST"})
      * @param Article $article
      * @return Response
      */
-    public function show(Article $article): Response
+    public function show(Article $article, Request $request, EntityManagerInterface $manager): Response
     {
         // Set +1 view for each visit
         $read = $article->getViews() +1;
         $article->setViews($read);
 
+        // Comments
+        $comment = new Comment;
+        $commentForm = $this->createForm(CommentType::class, $comment);
+        $commentForm->handleRequest($request);
+
+        // Form
+        if($commentForm->isSubmitted() && $commentForm->isValid()) {
+            $comment->setCreatedAt(new \DateTimeImmutable());
+            $comment->setArticle($article);
+
+            // Fetch parentid content
+            $parentid = $commentForm->get("parentid")->getData();
+
+            $em = $this->getDoctrine()->getManager();
+
+            // Fetch corresponding comment
+            if ($parentid != null) {
+                $parent = $em->getRepository(Comment::class)->find(($parentid));
+            }
+
+            // Define parent
+            $comment->setParent($parent ?? null);
+
+            $em->persist($comment);
+            $em->flush();
+
+            $this->addFlash('success', 'Your comment has been sent. Awaiting moderation.');
+            return $this->redirectToRoute('article_show', ['slug' => $article->getSlug()]);
+        }
+
+
         return $this->render('article/show.html.twig', [
             'article' => $article,
+            'commentForm' => $commentForm->createView()
         ]);
     }
 
