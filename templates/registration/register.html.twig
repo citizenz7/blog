@@ -40,8 +40,10 @@
                         {{ form_row(registrationForm.plainPassword, {label: 'Password'}) }}
 
                         <div class="d-flex justify-content-center">
-                            <p><a href="{{ path('terms') }}">Read and agree&nbsp;</a></p>
-                            {{ form_row(registrationForm.agreeTerms) }}
+                            <p>
+                                <a href="{{ path('terms') }}">Agree terms of service </a>
+                                {{ form_row(registrationForm.agreeTerms) }}
+                            </p>
                         </div>
 
                         <div class="d-grid gap-2">

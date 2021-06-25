@@ -67,7 +67,5 @@ Free template (HTML + CSS) is from https://bootstrapmade.com (Moderna)
     * image
     * file
 * templates:
-    * about
     * contact + captcha
-* comments captcha
-* HTML meta, keywords and description
+    * comments captcha

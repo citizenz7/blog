@@ -5,8 +5,38 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>{% block title %}{{ site_name }}{% endblock %}</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <meta content="{{ site_presentation }}" name="description">
+    <meta content="{{ site_keywords }}" name="keywords">
+    <meta name="author" content="citizenz">
+    <meta name="generator" content="Symfony 5">
+    <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+
+    <!-- search engines -->
+    <meta name="description" content="{{ site_presentation }}">
+    <meta name="keywords" content="{{ site_keywords }}">
+    <meta name="image" content="{{ site_url_full }}/img/logo.png">
+
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="{{ site_name_full }}">
+    <meta itemprop="description" content="{{ site_presentation }}">
+    <meta itemprop="image" content="{{ site_url_full }}/img/logo.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ site_name_full }}">
+    <meta name="twitter:description" content="{{ site_presentation }}">
+    <meta name="twitter:site" content="{{ site_name_full }}">
+    <meta name="twitter:image:src" content="{{ site_url_full }}/img/logo.png">
+
+    <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+    <meta name="og:title" content="{{ site_name_full }}">
+    <meta name="og:description" content="{{ site_presentation }}">
+    <meta name="og:image" content="{{ site_url_full }}/img/logo.png">
+    <meta name="og:url" content="{{ site_url_full }}">
+    <meta name="og:site_name" content="{{ site_name_full }}">
+    <meta name="og:locale" content="en_EN">
+    <meta name="fb:app_id" content="TO_DO">
+    <meta name="og:type" content="website">
 
     <!-- Favicons -->
     <link href="{{ asset('img/favicon.png') }}" rel="icon">
@@ -57,7 +87,7 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a href="{{ path('home') }}">Home</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="{{ path('about') }}">About</a></li>
 
                     <li><a href="#">Contact</a></li>
 
@@ -81,7 +111,7 @@
                             </ul>
                         </li>
                     {% else %}
-                        <li><a href="{{ path('app_login') }}">Login</a></li>
+                        <li><a href="{{ path('app_login') }}">Sign in</a></li>
                         <li><a href="{{ path('app_register') }}">Sign up</a></li>
                     {% endif %}
 
@@ -106,46 +136,36 @@
                         <ul>
                             <li><i class="bx bx-chevron-right"></i> <a href="{{ path('home') }}">Home</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="{{ path('about') }}">About us</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="{{ path('terms') }}">Terms of service</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="{{ path('disclaimer') }}">Disclaimer</a></li>
                         </ul>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Our Services</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-                        </ul>
-                    </div>
 
-                    <div class="col-lg-3 col-md-6 footer-contact">
+                    <div class="col-lg-4 col-md-6 footer-contact">
                         <h4>Contact Us</h4>
                         <p>
-                            A108 Adam Street <br>
-                            New York, NY 535022<br>
-                            United States <br><br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
+                            {{ site_address1 }}<br>
+                            {{ site_address_city }}, {{ site_address_code }}<br>
+                            {{ site_address_country }}<br>
+                            <strong>Phone:</strong> {{ site_address_phone }}<br>
+                            <strong>Email:</strong> {{ site_mail }}<br>
                         </p>
 
                     </div>
 
-                    <div class="col-lg-3 col-md-6 footer-info">
-                        <h3>About Moderna</h3>
-                        <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita
-                            valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                    <div class="col-lg-5 col-md-6 footer-info">
+                        <h3>About {{ site_name }}</h3>
+                        <p>
+                            {{ site_presentation }}
+                        </p>
                         <div class="social-links mt-3">
                             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                             <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                             <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
                             <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
                         </div>
-
+                        <p class="justify-content-end d-flex small fst-italic">V {{ site_version }}</p>
                     </div>
 
                 </div>
@@ -154,7 +174,7 @@
 
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong><span>Moderna</span></strong>. All Rights Reserved
+                &copy; Copyright {{ site_year }} - <strong><span>{{ site_name }}</span></strong> - All Rights Reserved
             </div>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->

@@ -49,7 +49,7 @@ class CommentType extends AbstractType
                 'constraints' => [
                     new NotBlank()
                 ],
-                'label' => 'Agree terms',
+                'label' => 'Agree terms of service',
                 'attr' => [
                     'class' => 'mx-2 mb-3'
                 ]
