@@ -3,28 +3,52 @@
 {% block title %}{{ site_name }}: {{ tag.title }}{% endblock %}
 
 {% block body %}
-    <h1>Tag</h1>
+<main id="main">
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ tag.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ tag.title }}</td>
-            </tr>
-            <tr>
-                <th>Slug</th>
-                <td>{{ tag.slug }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <!-- ======= Blog Section ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
 
-    <a href="{{ path('tag_index') }}">back to list</a>
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Tag</h2>
 
-    <a href="{{ path('tag_edit', {'id': tag.id}) }}">edit</a>
+                <ol>
+                    <li><a href="{{ path('home') }}">Home</a></li>
+                    <li><a href="{{ path('tag_index') }}">Tag</a></li>
+                    <li>{{ tag.title }}</li>
+                </ol>
+            </div>
 
-    {{ include('tag/_delete_form.html.twig') }}
+        </div>
+    </section><!-- End Blog Section -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row d-flex justify-content-center mb-5">
+                <div class="col">
+                    <h1>{{ tag.title }}</h1>
+
+                    <p>Tag's articles</p>
+                    {% for t in tag.article %}
+                        <div class="row py-1">
+                            <div class="col">
+                                <i class="bi bi-arrow-down-right-square-fill"></i> <a href="{{ path('article_show', { 'slug': t.slug }) }}">{{ t.title }}</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    {#
+                    <a href="{{ path('tag_index') }}">back to list</a>
+
+                    <a href="{{ path('tag_edit', {'id': tag.id}) }}">edit</a>
+
+                    {{ include('tag/_delete_form.html.twig') }}
+                    #}
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 {% endblock %}

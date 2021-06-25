@@ -86,6 +86,10 @@ class ArticleController extends AbstractController
         $read = $article->getViews() +1;
         $article->setViews($read);
 
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($article);
+        $entityManager->flush();
+
         // Comments
         $comment = new Comment;
         $commentForm = $this->createForm(CommentType::class, $comment);

@@ -61,6 +61,10 @@
                                         <i class="bi bi-chat-dots"></i>
                                         <a href="">{{ article.comment|length }} Comments</a>
                                     </li>
+                                    <li class="d-flex align-items-center">
+                                        <i class="bi bi-eye"></i>
+                                        <a href="">{{ article.views }} views</a>
+                                    </li>
                                 </ul>
                             </div>
 
@@ -89,35 +93,48 @@
                         <div class="blog-author d-flex align-items-center">
                             <img src="{{ article.author.image }}" class="rounded-circle float-left" alt="">
                             <div>
-                                <h4>{{ article.author.username }}</h4>
+                                <h5>Posted by {{ article.author.username }}</h5>
                                 <div class="social-links">
                                     {% if article.author.twitter %}
-                                    <a href="{{ article.author.twitter }}"><i class="bi bi-twitter"></i></a>
+                                        <a href="{{ article.author.twitter }}"><i class="bi bi-twitter"></i></a>
                                     {% endif %}
                                     {% if article.author.facebook %}
-                                    <a href="{{ article.author.facebook }}"><i class="bi bi-facebook"></i></a>
+                                        <a href="{{ article.author.facebook }}"><i class="bi bi-facebook"></i></a>
                                     {% endif %}
                                     {% if article.author.instagram %}
-                                    <a href="{{ article.author.instagram }}"><i class="biu bi-instagram"></i></a>
+                                        <a href="{{ article.author.instagram }}"><i class="bi bi-instagram"></i></a>
+                                    {% endif %}
+                                    {% if article.author.linkedin %}
+                                        <a href="{{ article.author.linkedin }}"><i class="bi bi-linkedin"></i></a>
+                                    {% endif %}
+                                    {% if article.author.github %}
+                                        <a href="{{ article.author.github }}"><i class="bi bi-github"></i></a>
+                                    {% endif %}
+                                    {% if article.author.youtube %}
+                                        <a href="{{ article.author.youtube }}"><i class="bi bi-youtube"></i></a>
                                     {% endif %}
                                 </div>
                                 <p>
-                                    {{ article.author.presentation }}
+                                    {{ article.author.presentation|raw }}
                                 </p>
                             </div>
                         </div><!-- End blog author bio -->
 
                         <div class="blog-comments">
 
-                            <h4 class="comments-count">{{ article.comment|length }} comments</h4>
+                            <h4 class="comments-count">
+                                {% if article.comment|length <= 1 %}
+                                    {{ article.comment|length }} comment
+                                {% else %}
+                                    {{ article.comment|length }} comments
+                                {% endif %}
+                            </h4>
 
                             <!-- Comments -->
                                 {% for comment in article.comment %}
 
                                     {% if comment.parent == null %}
                                         <div class="comment">
-                                            <p class="lead">Comment #{{ loop.index }}</p>
-
                                             <div class="d-flex">
                                                 <div class="border px-3 pt-3">
                                                     <h5>

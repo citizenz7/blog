@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ site_name }}: register{% endblock %}
+{% block title %}{{ site_name }}: sign-up{% endblock %}
 
 {% block body %}
 <main id="main">
@@ -10,7 +10,7 @@
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
-                <h2>Blog</h2>
+                <h2>Sign-up</h2>
 
                 <ol>
                     <li><a href="{{ path('home') }}">Home</a></li>
@@ -31,7 +31,7 @@
                     {% endfor %}
 
                     <div class="d-flex justify-content-center">
-                        <h1 class="mb-4">Register</h1>
+                        <h1 class="mb-4">Sign-up</h1>
                     </div>
 
                     {{ form_start(registrationForm) }}
@@ -40,6 +40,7 @@
                         {{ form_row(registrationForm.plainPassword, {label: 'Password'}) }}
 
                         <div class="d-flex justify-content-center">
+                            <p><a href="{{ path('terms') }}">Read and agree&nbsp;</a></p>
                             {{ form_row(registrationForm.agreeTerms) }}
                         </div>
 

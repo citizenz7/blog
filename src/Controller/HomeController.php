@@ -41,4 +41,14 @@ class HomeController extends AbstractController
             'tags' => $tags
         ]);
     }
+
+    /**
+     * @Route("/about", name="about")
+     */
+    public function about(): Response
+    {
+        return $this->render('home/about.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
 }

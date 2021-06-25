@@ -10,11 +10,10 @@
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
-                <h2>Blog</h2>
+                <h2>Tag</h2>
 
                 <ol>
                     <li><a href="{{ path('home') }}">Home</a></li>
-                    <li><a href="{{ path('admin') }}">Admin</a></li>
                     <li>Tag index</li>
                 </ol>
             </div>
@@ -25,47 +24,39 @@
     <!-- ======= Blog Section ======= -->
     <section id="blog" class="blog">
         <div class="container" data-aos="fade-up">
-
-            <div class="row d-flex justify-content-center mb-5">
-                <div class="col">
+            <div class="row py-5">
+                <div class="col mb-4">
                     <h1>Tag index</h1>
-
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Title</th>
-                                <th>Slug</th>
-                                <th width="9%"></th>
-                                <th width="4%"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for tag in tags %}
-                            <tr>
-                                <td>{{ tag.id }}</td>
-                                <td>{{ tag.title }}</td>
-                                <td>{{ tag.slug }}</td>
-                                <td>
-                                    <a class="btn btn-sm btn-info" href="{{ path('tag_show', {'slug': tag.slug}) }}">show</a>
-                                    <a class="btn btn-sm btn-warning" href="{{ path('tag_edit', {'id': tag.id}) }}">edit</a>
-                                </td>
-                                <td>
-                                    {{ include('tag/_delete_form.html.twig') }}
-                                </td>
-                            </tr>
-                            {% else %}
-                            <tr>
-                                <td colspan="4">no records found</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-
-                    <a class="btn btn-success" href="{{ path('tag_new') }}">Create new tag</a>
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        {% for tag in tags %}
+                        <div class="col">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title border-bottom pb-1">
+                                        <a href="{{ path('tag_show', {'slug': tag.slug}) }}"
+                                            class="text-dark">{{ tag.title }}</a>
+                                    </h5>
+                                    <p class="card-text">
+                                        <ul class="list-group list-group-flush">
+                                            {% for t in tag.article %}
+                                            <li class="list-group-item">
+                                                <i class="bi bi-arrow-down-right-square-fill"></i>
+                                                <a href="{{ path('article_show', { 'slug': t.slug }) }}">{{ t.title }}</a>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        {% else %}
+                            no records found
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
 </main>
 {% endblock %}

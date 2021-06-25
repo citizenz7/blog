@@ -63,12 +63,11 @@ Free template (HTML + CSS) is from https://bootstrapmade.com (Moderna)
 * Change to PRODUCTION in `.env.local` (APP_ENV=prod)
 * Empty cache : `symfony console cache:clear`
 ## TO DO
-* comment
 * file upload:
     * image
     * file
 * templates:
     * about
-    * blog-single
-    * contact
+    * contact + captcha
+* comments captcha
 * HTML meta, keywords and description

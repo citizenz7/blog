@@ -93,4 +93,24 @@ class RegistrationController extends AbstractController
 
         return $this->redirectToRoute('app_login');
     }
+
+    /**
+     * @Route("/terms", name="terms")
+     */
+    public function terms(): Response
+    {
+        return $this->render('registration/terms.html.twig', [
+            'controller_name' => 'RegistrationController',
+        ]);
+    }
+
+    /**
+     * @Route("/disclaimer", name="disclaimer")
+     */
+    public function disclaimer(): Response
+    {
+        return $this->render('registration/disclaimer.html.twig', [
+            'controller_name' => 'RegistrationController',
+        ]);
+    }
 }

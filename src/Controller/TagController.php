@@ -5,16 +5,16 @@ namespace App\Controller;
 use App\Entity\Tag;
 use App\Form\TagType;
 use App\Repository\TagRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 class TagController extends AbstractController
 {
     /**
-     * @Route("/admin/tag", name="tag_index", methods={"GET"})
+     * @Route("/tag", name="tag_index", methods={"GET"})
      * @param TagRepository $tagRepository
      * @return Response
      */
@@ -22,6 +22,28 @@ class TagController extends AbstractController
     {
         return $this->render('tag/index.html.twig', [
             'tags' => $tagRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/tag", name="tag_admin_index", methods={"GET"})
+     * @param TagRepository $tagRepository
+     * @return Response
+     */
+    public function indexAdmin(Request $request, TagRepository $tagRepository, PaginatorInterface $paginator): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        $dql = "SELECT p FROM App:Tag p ORDER BY p.title DESC";
+        $donnees = $em->createQuery($dql);
+
+        $tags = $paginator->paginate(
+            $donnees, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            5 // Nombre de résultats par page
+        );
+
+        return $this->render('tag/index.admin.html.twig', [
+            'tags' => $tags,
         ]);
     }
 

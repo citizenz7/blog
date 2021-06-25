@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Comment;
 use App\Form\Comment1Type;
 use App\Repository\CommentRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +19,20 @@ class CommentController extends AbstractController
      * @param CommentRepository $commentRepository
      * @return Response
      */
-    public function index(CommentRepository $commentRepository): Response
+    public function index(Request $request, CommentRepository $commentRepository, PaginatorInterface $paginator): Response
     {
+        $em = $this->getDoctrine()->getManager();
+        $dql = "SELECT p FROM App:Comment p ORDER BY p.id DESC";
+        $donnees = $em->createQuery($dql);
+
+        $comments = $paginator->paginate(
+            $donnees, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            5 // Nombre de résultats par page
+        );
+
         return $this->render('comment/index.html.twig', [
-            'comments' => $commentRepository->findAll(),
+            'comments' => $comments,
         ]);
     }
 

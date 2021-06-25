@@ -36,7 +36,7 @@ class SearchController extends AbstractController
                     'placeholder' => 'Enter keyword'
                 ]
             ])
-            ->add('submit', SubmitType::class, [
+            ->add('search', SubmitType::class, [
                 'attr' => [
                     'class' => 'btn btn-primary'
                 ]

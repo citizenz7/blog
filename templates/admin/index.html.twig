@@ -11,7 +11,7 @@
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
-                <h2>Blog</h2>
+                <h2>Admin</h2>
 
                 <ol>
                     <li><a href="{{ path('home') }}">Home</a></li>
@@ -65,6 +65,16 @@
                             <a href="{{ path('comment_index') }}" class="btn btn-warning fw-bold p-3 fs-6">Comments list</a>
                             <br>
                             <a href="" class="btn btn-outline-success fw-bold p-3 fs-6">Other</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="d-grid gap-2 card-body">
+                            <h5 class="card-title fw-bold">USERS</h5>
+                            <a href="{{ path('user_index') }}" class="btn btn-warning fw-bold p-3 fs-6">Users list</a>
+                            <br>
+                            <a href="{{ path('user_new') }}" class="btn btn-success fw-bold p-3 fs-6">New user</a>
                         </div>
                     </div>
                 </div>
