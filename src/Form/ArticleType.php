@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\Tag;
+use Doctrine\ORM\EntityRepository;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -49,7 +50,11 @@ class ArticleType extends AbstractType
                 'multiple' => true,
                 'attr' => [
                     'class' => 'form-control mb-3'
-                ]
+                ],
+                'query_builder' => function(EntityRepository $er) {
+                    return $er->createQueryBuilder('c')
+                        ->orderBy('c.title', 'ASC');
+                }
             ])
             ->add('tag', EntityType::class, [
                 'label' => 'Article\'s tags. Choose one or more.',
@@ -57,8 +62,13 @@ class ArticleType extends AbstractType
                 'choice_label' => 'title',
                 'multiple' => true,
                 'attr' => [
-                    'class' => 'form-control mb-3'
-                ]
+                    'class' => 'form-control select-tags'
+                ],
+                'query_builder' => function(EntityRepository $er) {
+                    return $er->createQueryBuilder('t')
+                        ->orderBy('t.title', 'ASC');
+                },
+                //'by_reference' => false
             ])
         ;
     }
