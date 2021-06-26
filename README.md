@@ -1,7 +1,6 @@
 # BLOG
 `BLOG` is a blog based system made with Symfony 5 framework.
 
-**WORK IN PROGRESS - PROJECT WON'T FULLY WORK**
 See TO DO section at the bottom.
 
 ## Template
@@ -50,9 +49,8 @@ Free template (HTML + CSS) is from https://bootstrapmade.com (Moderna)
 ## To initialize the project 
 * clone the repository: `git clone https://github.com/citizenz7/blog.git`
 * set up a `.env.local` file from `.env` with:
-    * MySQL credentials
-    * server address and port
-    * database name
+    * MySQL credentials, server address, server port, database name
+    * MAILER_DSN info to send emails (i use Mailhog for dev and a SMTP server for prod)
 * Create new database: `symfony console doctrine:database:create`
 * Build the migration: `symfony console make:migration`
 * Export into MySQL: `symfony console doctrine:migrations:migrate`
