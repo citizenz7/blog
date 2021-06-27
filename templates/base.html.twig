@@ -115,10 +115,17 @@
                         <li><a href="{{ path('app_register') }}">{% trans %}Sign up{% endtrans %}</a></li>
                     {% endif %}
 
+                    {% for locale in locales %}
+                        {% if locale != app.request.locale %}
+                            <li>
+                                <a href="{{ path('change_locale', {'locale': locale}) }}"><img src="{{ asset('img/'~locale~'.png') }}" alt="{{ locale }}"></a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
-
         </div>
     </header><!-- End Header -->
 

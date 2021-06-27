@@ -2,6 +2,7 @@ twig:
     default_path: '%kernel.project_dir%/templates'
 
     globals:
+        locales: '%app.locales%'
         site_name: 'WonderfullBlog'
         site_name_full: 'My Wonderfull Blog'
         site_url: 'wonderfullblog.com'
