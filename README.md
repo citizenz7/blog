@@ -22,7 +22,7 @@ Free template (HTML + CSS) is from https://bootstrapmade.com (Moderna)
 * Bootstrap (v5)
 * Google fonts (Open Sans)
 ### Translation
-* Transalation function (TransalatorInterface): EN, FR
+* Translation function (TransalatorInterface): EN, FR
 ### Entities
 * articles
 * comments
