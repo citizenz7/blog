@@ -5,7 +5,7 @@
     {% if (app.user.id == user.id) or (is_granted('ROLE_ADMIN')) %}
         {{ user.username }}
     {% else %}
-        Acces denied!
+    {% trans %}Acces denied!{% endtrans %}
     {% endif %}
 {% endblock %}
 
@@ -17,14 +17,14 @@
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
-                <h2>User</h2>
+                <h2>{% trans %}User{% endtrans %}</h2>
 
                 <ol>
-                    <li><a href="{{ path('home') }}">Home</a></li>
+                    <li><a href="{{ path('home') }}">{% trans %}Home{% endtrans %}</a></li>
                     {% if (app.user.id == user.id) or (is_granted('ROLE_ADMIN')) %}
-                        <li>{{ user.username }} profile</li>
+                        <li>{{ user.username }} {% trans %}profil{% endtrans %}</li>
                     {% else %}
-                        <li>Acces denied!</li>
+                        <li>{% trans %}Acces denied!{% endtrans %}</li>
                     {% endif %}
                 </ol>
             </div>
@@ -65,7 +65,7 @@
                                             <div class="col">
                                                 <p class="d-flex justify-content-between align-items-center mt-2 px-3">
                                                     <span class="badge bg-warning rounded-pill">ID: {{ user.id }}</span>
-                                                    <span class="badge bg-primary rounded-pill">Verified: {{ user.isVerified ? 'Yes' : 'No' }}</span>
+                                                    <span class="badge bg-primary rounded-pill">{% trans %}Verified{% endtrans %}: {{ user.isVerified ? 'Yes' : 'No' }}</span>
                                                 </p>
                                                 <p class="d-flex justify-content-between align-items-center mt-2 px-3 lead">
                                                     <a href="{{ user.facebook }}"><i class="bi bi-facebook"></i></a>
@@ -80,7 +80,7 @@
 
                                     </div>
                                     <div class="col">
-                                        Presentation:
+                                        {% trans %}Presentatio{% endtrans %}:
                                         <p class="bg-light p-2 mt-1 rounded">
                                             {{ user.presentation|raw }}
                                         </p>
@@ -88,14 +88,14 @@
                                             Email: {{ user.email }}<br>
                                             Role: 
                                             {% if user.roles|json_encode == '["ROLE_USER"]' %}
-                                                <span class="text-primary fw-bold">User</span>
+                                                <span class="text-primary fw-bold">{% trans %}Use{% endtrans %}</span>
                                             {% else %}
                                                 <span class="text-danger fw-bold">Admin</span>
                                             {% endif %}
                                         </p>
                                         <div class="row mt-5">
                                             <div class="col d-flex justify-content-end">
-                                                <a class="btn btn-success" href="{{ path('user_edit', {'id': user.id}) }}">edit profile</a> 
+                                                <a class="btn btn-success" href="{{ path('user_edit', {'id': user.id}) }}">{% trans %}edit profile{% endtrans %}</a> 
                                             </div>
                                         </div>
                                     </div>
@@ -110,12 +110,12 @@
                                     <i class="bi bi-exclamation-triangle-fill text-danger"></i>
                                 </h1>
                                 <h3>
-                                    Access denied!
+                                    {% trans %}Access denied!{% endtrans %}
                                 </h3>
 
                                 <div class="mt-5 pb-4 text-center">
                                     <a class="btn btn-primary p-3 lead" href="{{ path('home') }}">
-                                        Back to Home page
+                                        {% trans %}Back to Home page{% endtrans %}
                                     </a>
                                 </div>
                             </div>
@@ -127,10 +127,10 @@
                             <i class="bi bi-exclamation-triangle-fill h1 fw-bold"></i>
                         </p>
                         <p>
-                            Access denied!
+                            {% trans %}Access denied!{% endtrans %}
                         </p>
                         <p>
-                            <a class="btn btn-primary2" href="{{ path('home') }}"><i class="fas fa-home"></i> Back to Home page</a>
+                            <a class="btn btn-primary2" href="{{ path('home') }}"><i class="fas fa-home"></i> {% trans %}Back to Home page{% endtrans %}</a>
                         </p>
                     </div>
             {% endif %}

@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ArticleController extends AbstractController
 {
@@ -80,7 +80,7 @@ class ArticleController extends AbstractController
      * @param Article $article
      * @return Response
      */
-    public function show(Article $article, Request $request, EntityManagerInterface $manager): Response
+    public function show(Article $article, Request $request, EntityManagerInterface $manager, TranslatorInterface $translator): Response
     {
         // Set +1 view for each visit
         $read = $article->getViews() +1;
@@ -116,10 +116,11 @@ class ArticleController extends AbstractController
             $em->persist($comment);
             $em->flush();
 
-            $this->addFlash('success', 'Thank you for you comment!');
+            $message = $translator->trans('Thank you for you comment!');
+            $this->addFlash('success', $message);
+            
             return $this->redirectToRoute('article_show', ['slug' => $article->getSlug()]);
         }
-
 
         return $this->render('article/show.html.twig', [
             'article' => $article,

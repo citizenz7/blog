@@ -2,7 +2,7 @@
 
     <div class="sidebar">
 
-        <h3 class="sidebar-title">Search</h3>
+        <h3 class="sidebar-title">{% trans %}Search{% endtrans %}</h3>
         <div class="sidebar-item search-form">
 
             {#
@@ -19,7 +19,7 @@
             
         </div><!-- End sidebar search formn-->
 
-        <h3 class="sidebar-title">Categories</h3>
+        <h3 class="sidebar-title">{% trans %}Categories{% endtrans %}</h3>
         <div class="sidebar-item categories">
             <ul>
                 {% for cat in categoriesAll %}
@@ -32,13 +32,13 @@
             </ul>
         </div><!-- End sidebar categories-->
 
-        <h3 class="sidebar-title">Popular Posts</h3>
+        <h3 class="sidebar-title">{% trans %}Popular Posts{% endtrans %}</h3>
         <div class="sidebar-item recent-posts">
             {% for a in articles %}
             <div class="post-item clearfix">
                 <img src="{{ a.image }}" alt="{{ a.title }}" class="img-fluid" style="max-width: 85px; width: 100%;">
                 <h4><a href="{{ path('article_show', {'slug': a.slug}) }}">{{ a.title }}</a></h4>
-                <time datetime="{{ a.created_at|date('d-m-Y H:i:s') }}">Posted on {{ a.created_at|date("F jS \\a\\t g:ia") }}</time>
+                <time datetime="{{ a.created_at|date('d-m-Y H:i:s') }}">{% trans %}Posted on{% endtrans %} {{ a.created_at|date("F jS \\a\\t g:ia") }}</time>
             </div>
             {% endfor %}
         </div>

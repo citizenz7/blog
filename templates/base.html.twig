@@ -86,8 +86,8 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a href="{{ path('home') }}">Home</a></li>
-                    <li><a href="{{ path('about') }}">About</a></li>
+                    <li><a href="{{ path('home') }}">{% trans %}Home{% endtrans %}</a></li>
+                    <li><a href="{{ path('about') }}">{% trans %}About{% endtrans %}</a></li>
 
                     <li><a href="{{ path('contact') }}">Contact</a></li>
 
@@ -99,20 +99,20 @@
                             <ul>
                                 {% if is_granted('ROLE_ADMIN') %}
                                     <li>
-                                        <a href="{{ path('admin') }}"><span><i class="bi bi-gear-fill"></i> Dashboard</span></a>
+                                        <a href="{{ path('admin') }}"><span><i class="bi bi-gear-fill"></i> {% trans %}Dashboard{% endtrans %}</span></a>
                                     </li>
                                  {% endif %}
                                  <li>
-                                    <a href="{{ path('user_show', {'id': app.user.id}) }}"><span><i class="bi bi-person-circle"></i> Profile</span></a>
+                                    <a href="{{ path('user_show', {'id': app.user.id}) }}"><span><i class="bi bi-person-circle"></i> {% trans %}Profile{% endtrans %}</span></a>
                                 </li>
                                 <li>
-                                    <a class="nav-link scrollto" href="{{ path('app_logout') }}"><span><i class="bi bi-box-arrow-right"></i> Logout</span></a>
+                                    <a class="nav-link scrollto" href="{{ path('app_logout') }}"><span><i class="bi bi-box-arrow-right"></i> {% trans %}Logout{% endtrans %}</span></a>
                                 </li>
                             </ul>
                         </li>
                     {% else %}
-                        <li><a href="{{ path('app_login') }}">Sign in</a></li>
-                        <li><a href="{{ path('app_register') }}">Sign up</a></li>
+                        <li><a href="{{ path('app_login') }}">{% trans %}Sign in{% endtrans %}</a></li>
+                        <li><a href="{{ path('app_register') }}">{% trans %}Sign up{% endtrans %}</a></li>
                     {% endif %}
 
                 </ul>
@@ -132,30 +132,30 @@
                 <div class="row">
 
                     <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Useful Links</h4>
+                        <h4>{% trans %}Useful Links{% endtrans %}</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="{{ path('home') }}">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="{{ path('about') }}">About us</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="{{ path('terms') }}">Terms of service</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="{{ path('disclaimer') }}">Disclaimer</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="{{ path('home') }}">{% trans %}Home{% endtrans %}</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="{{ path('terms') }}">{% trans %}Terms of service{% endtrans %}</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="{{ path('policy') }}">{% trans %}Privacy policy{% endtrans %}</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="{{ path('disclaimer') }}">{% trans %}Disclaimer{% endtrans %}</a></li>
                         </ul>
                     </div>
 
 
                     <div class="col-lg-4 col-md-6 footer-contact">
-                        <h4>Contact Us</h4>
+                        <h4>{% trans %}Contact Us{% endtrans %}</h4>
                         <p>
                             {{ site_address1 }}<br>
                             {{ site_address_city }}, {{ site_address_code }}<br>
                             {{ site_address_country }}<br>
-                            <strong>Phone:</strong> {{ site_address_phone }}<br>
+                            <strong>{% trans %}Phone{% endtrans %}:</strong> {{ site_address_phone }}<br>
                             <strong>Email:</strong> {{ site_mail }}<br>
                         </p>
 
                     </div>
 
                     <div class="col-lg-5 col-md-6 footer-info">
-                        <h3>About {{ site_name }}</h3>
+                        <h3>{% trans %}About{% endtrans %}</h3>
                         <p>
                             {{ site_presentation }}
                         </p>

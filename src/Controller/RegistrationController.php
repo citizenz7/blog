@@ -104,6 +104,16 @@ class RegistrationController extends AbstractController
         ]);
     }
 
+        /**
+     * @Route("/policy", name="policy")
+     */
+    public function policy(): Response
+    {
+        return $this->render('registration/policy.html.twig', [
+            'controller_name' => 'RegistrationController',
+        ]);
+    }
+
     /**
      * @Route("/disclaimer", name="disclaimer")
      */

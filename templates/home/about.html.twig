@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ site_name }}: About{% endblock %}
+{% block title %}{{ site_name }}: {% trans %}About us{% endtrans %}{% endblock %}
 
 {% block body %}
 
@@ -11,10 +11,10 @@
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
-                <h2>About Us</h2>
+                <h2>{% trans %}About Us{% endtrans %}</h2>
                 <ol>
-                    <li><a href="{{ path('home') }}">Home</a></li>
-                    <li>About Us</li>
+                    <li><a href="{{ path('home') }}">{% trans %}Home{% endtrans %}</a></li>
+                    <li>{% trans %}About Us{% endtrans %}</li>
                 </ol>
             </div>
 

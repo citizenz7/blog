@@ -59,11 +59,11 @@
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i class="bi bi-chat-dots"></i>
-                                    <a href="">{{ article.comment|length }} Comments</a>
+                                    <a href="">{{ article.comment|length }} {% trans %}Comments{% endtrans %}</a>
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i class="bi bi-eye"></i>
-                                    <a href="">{{ article.views }} views</a>
+                                    <a href="">{{ article.views }} {% trans %}views{% endtrans %}</a>
                                 </li>
                             </ul>
                         </div>
@@ -93,7 +93,7 @@
                     <div class="blog-author d-flex align-items-center">
                         <img src="{{ article.author.image }}" class="rounded-circle float-left" alt="">
                         <div>
-                            <h5>Posted by {{ article.author.username }}</h5>
+                            <h5>{% trans %}Posted by{% endtrans %} {{ article.author.username }}</h5>
                             <div class="social-links">
                                 {% if article.author.twitter %}
                                 <a href="{{ article.author.twitter }}"><i class="bi bi-twitter"></i></a>
@@ -124,9 +124,9 @@
 
                         <h4 class="comments-count">
                             {% if article.comment|length >= 2 %}
-                            {{ article.comment|length }} comments
+                            {{ article.comment|length }} {% trans %}comments{% endtrans %}
                             {% else %}
-                            {{ article.comment|length }} comment
+                            {{ article.comment|length }} {% trans %}comment{% endtrans %}
                             {% endif %}
                         </h4>
 
@@ -140,7 +140,7 @@
                                     <h5>
                                         {{ comment.nickname }}
                                         <a href="#reply-comment" data-reply data-id={{ comment.id }} class="reply">
-                                            <i class="bi bi-reply-fill"></i> Reply
+                                            <i class="bi bi-reply-fill"></i> {% trans %}Reply{% endtrans %}
                                         </a>
                                     </h5>
                                     <time datetime="{{ comment.createdAt|date("F jS \\a\\t g:ia") }}">
@@ -179,14 +179,13 @@
                         {% endfor %}
 
                         <div id="reply-comment" class="reply-form mt-5">
-                            <h4>Leave a Reply</h4>
-                            <p>Your email address will not be published.</p>
+                            <h4>{% trans %}Leave a Reply{% endtrans %}</h4>
+                            <p>{% trans %}Your email address will not be published.{% endtrans %}</p>
                             {{ form_start(commentForm) }}
                                 {{ form_widget(commentForm) }}
                                 <div class="mt-2">
-                                    <button
-                                        class="btn btn-sm btn-success">{{ button_label|default('Send message') }}</button>
-                                    <button class="btn btn-sm btn-secondary" type="reset">Reset</button>
+                                    <button class="btn btn-sm btn-success">{% trans %}Send message{% endtrans %}</button>
+                                    <button class="btn btn-sm btn-secondary" type="reset">{% trans %}Reset{% endtrans %}</button>
                                 </div>
                             {{ form_end(commentForm) }}
                         </div>

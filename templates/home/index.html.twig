@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ site_name }}: welcome!{% endblock %}
+{% block title %}{{ site_name }}: {% trans %}welcome!{% endtrans %}{% endblock %}
 
 {% block body %}
 
@@ -14,7 +14,7 @@
                 <h2>{{ site_name_full }}</h2>
 
                 <ol>
-                    <li>Home</li>
+                    <li>{% trans %}Home{% endtrans %}</li>
                 </ol>
             </div>
 
@@ -59,10 +59,10 @@
 
                             <div class="entry-meta">
                                 <ul>
-                                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="">Posted by {{ art.author }}</a></li>
-                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="">Posted on {{ art.createdAt|date("F jS \\a\\t g:ia") }}</a></li>
-                                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="">12 Comments</a></li>
-                                    <li class="d-flex align-items-center"><i class="bi bi-eye"></i> <a href="">{{ art.views }} views</a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="">{% trans %}Posted by{% endtrans %} {{ art.author }}</a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="">{% trans %}Posted on{% endtrans %} {{ art.createdAt|date("F jS \\a\\t g:ia") }}</a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="">12 {% trans %}Comments{% endtrans %}</a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-eye"></i> <a href="">{{ art.views }} {% trans %}views{% endtrans %}</a></li>
                                 </ul>
                             </div>
 
@@ -71,7 +71,7 @@
                                     {{ art.content|slice(0,250)|raw }}...
                                 </p>
                                 <div class="read-more">
-                                    <a href="{{ path('article_show', {'slug': art.slug}) }}">Read More</a>
+                                    <a href="{{ path('article_show', {'slug': art.slug}) }}">{% trans %}Read More{% endtrans %}</a>
                                 </div>
                             </div>
 

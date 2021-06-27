@@ -17,9 +17,9 @@
                 <h2>Blog</h2>
 
                 <ol>
-                    <li><a href="{{ path('home') }}">Home</a></li>
+                    <li><a href="{{ path('home') }}">{% trans %}Home{% endtrans %}</a></li>
                     <li><a href="{{ path('admin') }}">Admin</a></li>
-                    <li>Edit Article</li>
+                    <li>{% trans %}Edit Article{% endtrans %}</li>
                 </ol>
             </div>
 
@@ -32,7 +32,7 @@
 
             <div class="row d-flex justify-content-center mb-5">
                 <div class="col">
-                    <h1>Edit Article</h1>
+                    <h1>{% trans %}Edit Article{% endtrans %}</h1>
 
                     {{ include('article/_form.html.twig', {'button_label': 'Update'}) }}
 

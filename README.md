@@ -21,6 +21,8 @@ Free template (HTML + CSS) is from https://bootstrapmade.com (Moderna)
 * Javascript (Aos, Glightbox, Isotope, Validate, Purecounter, swipper, Waypoints, Bootstrap)
 * Bootstrap (v5)
 * Google fonts (Open Sans)
+### Translation
+* Transalation function (TransalatorInterface): EN, FR
 ### Entities
 * articles
 * comments
@@ -60,6 +62,10 @@ Free template (HTML + CSS) is from https://bootstrapmade.com (Moderna)
 * Install Elfinder (file browser for CKEditor) : `symfony console elfinder:install`
 * Change to PRODUCTION in `.env.local` (APP_ENV=prod)
 * Empty cache : `symfony console cache:clear`
+* register a first account (/register) then change its role to ["ROLE_ADMIN"] in database
+* login with this admin account and connect to admin dashboard (/login)
+* ... then start to create new categories and new articles
+* tags will be automaticaly created as you write them (SELECT2 JQuery plugin)
 ## TO DO
 * file upload:
     * image

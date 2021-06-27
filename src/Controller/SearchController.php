@@ -33,7 +33,7 @@ class SearchController extends AbstractController
                 'label' => false,
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Enter keyword'
+                    'placeholder' => 'Search'
                 ]
             ])
             ->add('search', SubmitType::class, [

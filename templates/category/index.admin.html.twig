@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ site_name }}: categories index{% endblock %}
+{% block title %}{{ site_name }}: {% trans %}categories index{% endtrans %}{% endblock %}
 
 {% block body %}
 <main id="main">
@@ -13,9 +13,9 @@
                 <h2>Category</h2>
 
                 <ol>
-                    <li><a href="{{ path('home') }}">Home</a></li>
+                    <li><a href="{{ path('home') }}">{% trans %}Home{% endtrans %}</a></li>
                     <li><a href="{{ path('admin') }}">Admin</a></li>
-                    <li>Category index</li>
+                    <li>{% trans %}Category inde{% endtrans %}</li>
                 </ol>
             </div>
 
@@ -43,15 +43,15 @@
                 {% endfor %}
 
                 <div class="col mb-4">
-                    <h1>Category index</h1>
+                    <h1>{% trans %}Category index{% endtrans %}</h1>
 
                     <table class="table mb-5">
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Title</th>
+                                <th>{% trans %}Title{% endtrans %}</th>
                                 <th>Slug</th>
-                                <th width="9%"></th>
+                                <th width="11%"></th>
                                 <th width="4%"></th>
                             </tr>
                         </thead>
@@ -62,8 +62,8 @@
                                 <td>{{ category.title }}</td>
                                 <td>{{ category.slug }}</td>
                                 <td>
-                                    <a class="btn btn-sm btn-info" href="{{ path('category_show', {'slug': category.slug}) }}">show</a>
-                                    <a class="btn btn-sm btn-warning" href="{{ path('category_edit', {'id': category.id}) }}">edit</a>
+                                    <a class="btn btn-sm btn-info" href="{{ path('category_show', {'slug': category.slug}) }}">{% trans %}show{% endtrans %}</a>
+                                    <a class="btn btn-sm btn-warning" href="{{ path('category_edit', {'id': category.id}) }}">{% trans %}edit{% endtrans %}</a>
                                 </td>
                                 <td>
                                     {{ include('category/_delete_form.html.twig') }}
@@ -71,13 +71,13 @@
                             </tr>
                             {% else %}
                             <tr>
-                                <td colspan="4">no records found</td>
+                                <td colspan="4">{% trans %}no records found{% endtrans %}</td>
                             </tr>
                             {% endfor %}
                         </tbody>
                     </table>
 
-                    <a class="btn btn-success" href="{{ path('category_new') }}">Create new category</a>
+                    <a class="btn btn-success" href="{{ path('category_new') }}">{% trans %}Create new category{% endtrans %}</a>
 
                 </div>
             </div>

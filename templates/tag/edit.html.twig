@@ -13,7 +13,7 @@
                 <h2>Tag</h2>
 
                 <ol>
-                    <li><a href="{{ path('home') }}">Home</a></li>
+                    <li><a href="{{ path('home') }}">{% trans %}Home{% endtrans %}</a></li>
                     <li><a href="{{ path('admin') }}">Admin</a></li>
                     <li><a href="{{ path('tag_admin_index') }}">Tag</a></li>
                     <li>{{ tag.title }}</li>
@@ -29,7 +29,7 @@
 
             <div class="row d-flex justify-content-center mb-5">
                 <div class="col">
-                    <h1>Edit Tag</h1>
+                    <h1>{% trans %}Edit Ta{% endtrans %}</h1>
 
                     {{ include('tag/_form.html.twig', {'button_label': 'Update'}) }}
 

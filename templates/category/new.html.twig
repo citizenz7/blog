@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ site_name }}: new category{% endblock %}
+{% block title %}{{ site_name }}: {% trans %}new category{% endtrans %}{% endblock %}
 
 {% block body %}
 <main id="main">
@@ -13,9 +13,9 @@
                 <h2>Category</h2>
 
                 <ol>
-                    <li><a href="{{ path('home') }}">Home</a></li>
+                    <li><a href="{{ path('home') }}">{% trans %}Home{% endtrans %}</a></li>
                     <li><a href="{{ path('admin') }}">Admin</a></li>
-                    <li>New category</li>
+                    <li>{% trans %}New category{% endtrans %}</li>
                 </ol>
             </div>
 
@@ -29,7 +29,7 @@
             <div class="row py-5">
 
                 <div class="col mb-4">
-                    <h1>Create new Category</h1>
+                    <h1>{% trans %}Create new Category{% endtrans %}</h1>
 
                     {{ include('category/_form.html.twig') }}
 

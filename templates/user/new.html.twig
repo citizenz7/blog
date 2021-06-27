@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ site_name }}: new User{% endblock %}
+{% block title %}{{ site_name }}: {% trans %}new User{% endtrans %}{% endblock %}
 
 {% block body %}
 <main id="main">
@@ -10,10 +10,10 @@
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
-                <h2>User</h2>
+                <h2>{% trans %}User{% endtrans %}</h2>
 
                 <ol>
-                    <li><a href="{{ path('home') }}">Home</a></li>
+                    <li><a href="{{ path('home') }}">{% trans %}Home{% endtrans %}</a></li>
                     <li>Admin Index</li>
                 </ol>
             </div>
@@ -27,7 +27,7 @@
 
             <div class="row d-flex justify-content-center mb-5">
                 <div class="col">
-                    <h1>Create new User</h1>
+                    <h1>{% trans %}Create new User{% endtrans %}</h1>
 
                     {{ include('user/_form.html.twig') }}
 
