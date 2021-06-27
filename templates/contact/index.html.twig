@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+
+<main id="main">
+
+    <!-- ======= Blog Section ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Contact</h2>
+
+                <ol>
+                    <li><a href="{{ path('home') }}">Home</a></li>
+                    <li>Contact</li>
+                </ol>
+            </div>
+
+        </div>
+    </section><!-- End Blog Section -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row d-flex justify-content-center mb-5">
+                <div class="col">
+                    {% for msg in app.session.flashBag.get('successContact') %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ msg }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+
+                    <div class="mb-3 p-3 bg-primary rounded text-white text-center fs-3">
+                        <i class="bi bi-envelope-fill"></i> Nous contacter par mail
+                    </div>
+
+                    <div class="card px-3 pt-3 pb-2 mb-4">
+                        <p>
+                            Hello there,<br>
+                            Please use the form below to contact us.<br>
+                            We'll answer you as soon as possible.<br>
+                            <span class="small fst-italic">{{ site_name_full }} team</span>
+                        </p>
+                    </div>
+
+                    {{ form_start(our_form) }}
+                        {{ form_row(our_form.name) }}
+                        {{ form_row(our_form.email) }}
+                        {{ form_row(our_form.message) }}
+                        {{ form_row(our_form.captcha, {'label' : 'Please copy antispam code'}) }}
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-primary mr-3 mb-4">Send message</button>
+                            <button type="reset" class="btn btn-secondary mb-4">Reset</button>
+                        </div>
+                    {{ form_end(our_form) }}
+
+                </div>
+                {% block sidebar %}
+                    {{ sidebar() }}
+                {% endblock %}
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

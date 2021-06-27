@@ -116,7 +116,7 @@ class ArticleController extends AbstractController
             $em->persist($comment);
             $em->flush();
 
-            $this->addFlash('success', 'Your comment has been sent. Awaiting moderation.');
+            $this->addFlash('success', 'Thank you for you comment!');
             return $this->redirectToRoute('article_show', ['slug' => $article->getSlug()]);
         }
 
