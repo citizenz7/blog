@@ -25,11 +25,6 @@ class Comment
     private $content;
 
     /**
-     * @ORM\Column(type="boolean")
-     */
-    private $is_active = false;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $email;

@@ -3,210 +3,217 @@
 {% block title %}{{ site_name }}:{{ article.title }}{% endblock %}
 
 {% block body %}
-    <main id="main">
+<main id="main">
 
-        <!-- ======= Blog Section ======= -->
-        <section class="breadcrumbs">
-            <div class="container">
+    <!-- ======= Blog Section ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
 
-                <div class="d-flex justify-content-between align-items-center">
-                    <h2>Blog</h2>
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Blog</h2>
 
-                    <ol>
-                        <li><a href="{{ path('home') }}">Home</a></li>
-                        <li>article</li>
-                        <li>{{ article.title }}</li>
-                    </ol>
-                </div>
-
+                <ol>
+                    <li><a href="{{ path('home') }}">Home</a></li>
+                    <li>article</li>
+                    <li>{{ article.title }}</li>
+                </ol>
             </div>
-        </section><!-- End Blog Section -->
 
-        <!-- ======= Blog Single Section ======= -->
-        <section id="blog" class="blog">
-            <div class="container" data-aos="fade-up">
+        </div>
+    </section><!-- End Blog Section -->
 
-                <div class="row">
+    <!-- ======= Blog Single Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
 
-                    <div class="col-lg-8 entries">
+            <div class="row">
 
-                        {% for message in app.flashes('success') %}
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{ message }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="col-lg-8 entries">
+
+                    {% for message in app.flashes('success') %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+
+                    <article class="entry entry-single">
+
+                        <div class="entry-img">
+                            <img src="{{ article.image }}" alt="{{ article.title }}" class="img-fluid">
+                        </div>
+
+                        <h2 class="entry-title">
+                            <a href="">{{ article.title }}</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                            <ul>
+                                <li class="d-flex align-items-center">
+                                    <i class="bi bi-person"></i>
+                                    <a href="">{{ article.author }}</a>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="bi bi-clock"></i>
+                                    <a href="">{{ article.createdAt|date("F jS \\a\\t g:ia") }}</a>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="bi bi-chat-dots"></i>
+                                    <a href="">{{ article.comment|length }} Comments</a>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="bi bi-eye"></i>
+                                    <a href="">{{ article.views }} views</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="entry-content">
+                            {{ article.content|raw }}
+                        </div>
+
+                        <div class="entry-footer">
+                            <i class="bi bi-folder"></i>
+                            <ul class="cats">
+                                {% for c in article.category %}
+                                <li><a href="{{ path('category_show', {'slug': c.slug}) }}">{{ c.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+
+                            <i class="bi bi-tags"></i>
+                            <ul class="tags">
+                                {% for t in article.tag %}
+                                <li><a href="{{ path('tag_show', {'slug': t.slug}) }}">{{ t.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                    </article><!-- End blog entry -->
+
+                    <div class="blog-author d-flex align-items-center">
+                        <img src="{{ article.author.image }}" class="rounded-circle float-left" alt="">
+                        <div>
+                            <h5>Posted by {{ article.author.username }}</h5>
+                            <div class="social-links">
+                                {% if article.author.twitter %}
+                                <a href="{{ article.author.twitter }}"><i class="bi bi-twitter"></i></a>
+                                {% endif %}
+                                {% if article.author.facebook %}
+                                <a href="{{ article.author.facebook }}"><i class="bi bi-facebook"></i></a>
+                                {% endif %}
+                                {% if article.author.instagram %}
+                                <a href="{{ article.author.instagram }}"><i class="bi bi-instagram"></i></a>
+                                {% endif %}
+                                {% if article.author.linkedin %}
+                                <a href="{{ article.author.linkedin }}"><i class="bi bi-linkedin"></i></a>
+                                {% endif %}
+                                {% if article.author.github %}
+                                <a href="{{ article.author.github }}"><i class="bi bi-github"></i></a>
+                                {% endif %}
+                                {% if article.author.youtube %}
+                                <a href="{{ article.author.youtube }}"><i class="bi bi-youtube"></i></a>
+                                {% endif %}
+                            </div>
+                            <p>
+                                {{ article.author.presentation|raw }}
+                            </p>
+                        </div>
+                    </div><!-- End blog author bio -->
+
+                    <div class="blog-comments">
+
+                        <h4 class="comments-count">
+                            {% if article.comment|length >= 2 %}
+                            {{ article.comment|length }} comments
+                            {% else %}
+                            {{ article.comment|length }} comment
+                            {% endif %}
+                        </h4>
+
+                        <!-- Comments -->
+                        {% for comment in article.comment %}
+
+                        {% if comment.parent == null %}
+                        <div class="comment">
+                            <div class="d-flex">
+                                <div class="border px-3 pt-3">
+                                    <h5>
+                                        {{ comment.nickname }}
+                                        <a href="#reply-comment" data-reply data-id={{ comment.id }} class="reply">
+                                            <i class="bi bi-reply-fill"></i> Reply
+                                        </a>
+                                    </h5>
+                                    <time datetime="{{ comment.createdAt|date("F jS \\a\\t g:ia") }}">
+                                        {{ comment.createdAt|date("F jS \\a\\t g:ia") }}
+                                    </time>
+                                    <p>
+                                        {{ comment.content|raw }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# show reply #}
+                        {% for reply in comment.replie %}
+                        <div class="comment comment-reply">
+                            <div class="d-flex">
+                                <div class="border px-3 pt-3">
+                                    <h5>
+                                        {{ reply.nickname }}
+                                    </h5>
+                                    <div>
+                                        <time datetime="{{ reply.createdAt|date("F jS \\a\\t g:ia") }}">
+                                            {{ reply.createdAt|date("F jS \\a\\t g:ia") }}
+                                        </time>
+                                    </div>
+                                    <p>
+                                        {{ reply.content|raw }}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                         {% endfor %}
 
-                        <article class="entry entry-single">
+                        {% endif %}
 
-                            <div class="entry-img">
-                                <img src="{{ article.image }}" alt="{{ article.title }}" class="img-fluid">
+                        {% endfor %}
+
+                        <div id="reply-comment" class="reply-form mt-5">
+                            <h4>Leave a Reply</h4>
+                            <p>Your email address will not be published.</p>
+                            {{ form_start(commentForm) }}
+                            {{ form_widget(commentForm) }}
+                            <div class="mt-2">
+                                <button
+                                    class="btn btn-sm btn-success">{{ button_label|default('Send message') }}</button>
+                                <button class="btn btn-sm btn-secondary" type="reset">Reset</button>
                             </div>
+                            {{ form_end(commentForm) }}
+                        </div>
 
-                            <h2 class="entry-title">
-                                <a href="">{{ article.title }}</a>
-                            </h2>
+                    </div><!-- End blog comments -->
 
-                            <div class="entry-meta">
-                                <ul>
-                                    <li class="d-flex align-items-center">
-                                        <i class="bi bi-person"></i>
-                                        <a href="">{{ article.author }}</a>
-                                    </li>
-                                    <li class="d-flex align-items-center">
-                                        <i class="bi bi-clock"></i>
-                                        <a href="">{{ article.createdAt|date("F jS \\a\\t g:ia") }}</a>
-                                    </li>
-                                    <li class="d-flex align-items-center">
-                                        <i class="bi bi-chat-dots"></i>
-                                        <a href="">{{ article.comment|length }} Comments</a>
-                                    </li>
-                                    <li class="d-flex align-items-center">
-                                        <i class="bi bi-eye"></i>
-                                        <a href="">{{ article.views }} views</a>
-                                    </li>
-                                </ul>
-                            </div>
+                </div><!-- End blog entries list -->
 
-                            <div class="entry-content">
-                                {{ article.content|raw }}
-                            </div>
+                {% block sidebar %}
+                {{ sidebar() }}
+                {% endblock %}
 
-                            <div class="entry-footer">
-                                <i class="bi bi-folder"></i>
-                                <ul class="cats">
-                                    {% for c in article.category %}
-                                    <li><a href="{{ path('category_show', {'slug': c.slug}) }}">{{ c.title }}</a></li>
-                                    {% endfor %}
-                                </ul>
-
-                                <i class="bi bi-tags"></i>
-                                <ul class="tags">
-                                    {% for t in article.tag %}
-                                    <li><a href="{{ path('tag_show', {'slug': t.slug}) }}">{{ t.title }}</a></li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-
-                        </article><!-- End blog entry -->
-
-                        <div class="blog-author d-flex align-items-center">
-                            <img src="{{ article.author.image }}" class="rounded-circle float-left" alt="">
-                            <div>
-                                <h5>Posted by {{ article.author.username }}</h5>
-                                <div class="social-links">
-                                    {% if article.author.twitter %}
-                                        <a href="{{ article.author.twitter }}"><i class="bi bi-twitter"></i></a>
-                                    {% endif %}
-                                    {% if article.author.facebook %}
-                                        <a href="{{ article.author.facebook }}"><i class="bi bi-facebook"></i></a>
-                                    {% endif %}
-                                    {% if article.author.instagram %}
-                                        <a href="{{ article.author.instagram }}"><i class="bi bi-instagram"></i></a>
-                                    {% endif %}
-                                    {% if article.author.linkedin %}
-                                        <a href="{{ article.author.linkedin }}"><i class="bi bi-linkedin"></i></a>
-                                    {% endif %}
-                                    {% if article.author.github %}
-                                        <a href="{{ article.author.github }}"><i class="bi bi-github"></i></a>
-                                    {% endif %}
-                                    {% if article.author.youtube %}
-                                        <a href="{{ article.author.youtube }}"><i class="bi bi-youtube"></i></a>
-                                    {% endif %}
-                                </div>
-                                <p>
-                                    {{ article.author.presentation|raw }}
-                                </p>
-                            </div>
-                        </div><!-- End blog author bio -->
-
-                        <div class="blog-comments">
-
-                            <h4 class="comments-count">
-                                {% if article.comment|length <= 1 %}
-                                    {{ article.comment|length }} comment
-                                {% else %}
-                                    {{ article.comment|length }} comments
-                                {% endif %}
-                            </h4>
-
-                            <!-- Comments -->
-                                {% for comment in article.comment %}
-
-                                    {% if comment.parent == null %}
-                                        <div class="comment">
-                                            <div class="d-flex">
-                                                <div class="border px-3 pt-3">
-                                                    <h5>
-                                                        {{ comment.nickname }}
-                                                        <a href="#reply-comment" data-reply data-id={{ comment.id }} class="reply">
-                                                            <i class="bi bi-reply-fill"></i> Reply
-                                                        </a>
-                                                    </h5>
-                                                    <time datetime="{{ comment.createdAt|date("F jS \\a\\t g:ia") }}">
-                                                        {{ comment.createdAt|date("F jS \\a\\t g:ia") }}
-                                                    </time>
-                                                    <p>
-                                                        {{ comment.content|raw }}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        {# show reply #}
-                                        {% for reply in comment.replie %}
-                                            <div class="comment comment-reply">
-                                                <div class="d-flex">
-                                                    <div class="border px-3 pt-3">
-                                                        <h5>
-                                                            {{ reply.nickname }}
-                                                        </h5>
-                                                        <div>
-                                                            <time datetime="{{ reply.createdAt|date("F jS \\a\\t g:ia") }}">
-                                                                {{ reply.createdAt|date("F jS \\a\\t g:ia") }}
-                                                            </time>
-                                                        </div>
-                                                        <p>
-                                                            {{ reply.content|raw }}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        {% endfor %}
-
-                                    {% endif %}
-
-                                {% endfor %}
-
-                            <div id="reply-comment" class="reply-form mt-5">
-                                <h4>Leave a Reply</h4>
-                                <p>Your email address will not be published.</p>
-                                {{ form(commentForm) }}
-                            </div>
-
-                        </div><!-- End blog comments -->
-
-                    </div><!-- End blog entries list -->
-
-                    {% block sidebar %}
-                        {{ sidebar() }}
-                    {% endblock %}
-
-                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 {% endblock %}
 
 {% block javascripts %}
-    <script>
-        window.onload = () => {
-            // Listener event on each Reply button
-            document.querySelectorAll("[data-reply]").forEach(element => {
-                element.addEventListener("click", function (){
-                    document.querySelector("#comment_parentid").value = this.dataset.id;
-                });
+<script>
+    window.onload = () => {
+        // Listener event on each Reply button
+        document.querySelectorAll("[data-reply]").forEach(element => {
+            element.addEventListener("click", function () {
+                document.querySelector("#comment_parentid").value = this.dataset.id;
             });
-        }
-    </script>
+        });
+    }
+</script>
 {% endblock %}

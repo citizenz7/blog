@@ -36,6 +36,13 @@
     <section id="blog" class="blog">
         <div class="container" data-aos="fade-up">
 
+            {% for message in app.flashes('message') %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+
             {% if app.user %}
                     {% if (app.user.id == user.id) or (is_granted('ROLE_ADMIN')) %}
 

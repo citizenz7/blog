@@ -3,44 +3,79 @@
 {% block title %}Comment{% endblock %}
 
 {% block body %}
-    <h1>Comment</h1>
+<main id="main">
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ comment.id }}</td>
-            </tr>
-            <tr>
-                <th>Content</th>
-                <td>{{ comment.content }}</td>
-            </tr>
-            <tr>
-                <th>Is_active</th>
-                <td>{{ comment.isActive ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ comment.email }}</td>
-            </tr>
-            <tr>
-                <th>Nickname</th>
-                <td>{{ comment.nickname }}</td>
-            </tr>
-            <tr>
-                <th>Created_at</th>
-                <td>{{ comment.createdAt ? comment.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Rgpd</th>
-                <td>{{ comment.rgpd ? 'Yes' : 'No' }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <!-- ======= Blog Section ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
 
-    <a href="{{ path('comment_index') }}">back to list</a>
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Comment</h2>
 
-    <a href="{{ path('comment_edit', {'id': comment.id}) }}">edit</a>
+                <ol>
+                    <li><a href="{{ path('home') }}">Home</a></li>
+                    <li><a href="{{ path('admin') }}">Admin</a></li>
+                    <li>Comment index</li>
+                </ol>
+            </div>
 
-    {{ include('comment/_delete_form.html.twig') }}
+        </div>
+    </section><!-- End Blog Section -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row d-flex justify-content-center mb-5">
+                <div class="col">
+                    <h1>Comment</h1>
+
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Id</th>
+                                <td>{{ comment.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Content</th>
+                                <td>{{ comment.content }}</td>
+                            </tr>
+                            <tr>
+                                <th>Is_active</th>
+                                <td>{{ comment.isActive ? 'Yes' : 'No' }}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{ comment.email }}</td>
+                            </tr>
+                            <tr>
+                                <th>Nickname</th>
+                                <td>{{ comment.nickname }}</td>
+                            </tr>
+                            <tr>
+                                <th>Created_at</th>
+                                <td>{{ comment.createdAt ? comment.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                            </tr>
+                            <tr>
+                                <th>Rgpd</th>
+                                <td>{{ comment.rgpd ? 'Yes' : 'No' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="row mt-5">
+                        <div class="col">
+                            <a class="btn btn-sm btn-success" href="{{ path('comment_edit', {'id': comment.id}) }}">edit</a>
+                            <a class="btn btn-sm btn-primary" href="{{ path('comment_index') }}">back to list</a>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            {{ include('comment/_delete_form.html.twig') }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 {% endblock %}

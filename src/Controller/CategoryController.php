@@ -5,10 +5,12 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 class CategoryController extends AbstractController
@@ -88,7 +90,8 @@ class CategoryController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('category_index');
+            $this->addFlash('message', 'Category edited with success!');
+            return $this->redirectToRoute('category_admin_index');
         }
 
         return $this->render('category/edit.html.twig', [
@@ -111,6 +114,7 @@ class CategoryController extends AbstractController
             $entityManager->flush();
         }
 
+        $this->addFlash('message_deleted', 'Category deleted with success!');
         return $this->redirectToRoute('category_index');
     }
 }

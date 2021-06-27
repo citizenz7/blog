@@ -145,6 +145,7 @@ class ArticleController extends AbstractController
 
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('message', 'Message edited with success!');
             return $this->redirectToRoute('article_index');
         }
 
@@ -168,6 +169,7 @@ class ArticleController extends AbstractController
             $entityManager->flush();
         }
 
+        $this->addFlash('message_delete', 'Message deleted with success!');
         return $this->redirectToRoute('article_index');
     }
 }

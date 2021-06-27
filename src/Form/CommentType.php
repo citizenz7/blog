@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class CommentType extends AbstractType
@@ -40,8 +41,6 @@ class CommentType extends AbstractType
                     'placeholder' =>'Your comment'
                 ]
             ])
-
-            //->add('is_active')
             //->add('created_at')
             //->add('article')
 
@@ -57,11 +56,11 @@ class CommentType extends AbstractType
             ->add('parentid', HiddenType::class, [
                 'mapped' => false
             ])
-            ->add('sendMessage', SubmitType::class, [
+            /*->add('send', SubmitType::class, [
                 'attr' => [
-                    'class' => 'btn btn-primary'
+                    'class' => 'btn btn-success'
                 ]
-            ])
+            ])*/
         ;
     }
 

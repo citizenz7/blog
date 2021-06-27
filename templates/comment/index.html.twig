@@ -26,6 +26,20 @@
     <section id="blog" class="blog">
         <div class="container" data-aos="fade-up">
 
+            {% for message in app.flashes('message') %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert"">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+
+            {% for message in app.flashes('message_deleted') %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert"">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+
             <div class="row d-flex justify-content-center mb-5">
                 <div class="col">
                     <h1>Comment index</h1>
@@ -48,7 +62,7 @@
                             {% for comment in comments %}
                             <tr>
                                 <td>{{ comment.id }}</td>
-                                <td>{{ comment.content }}</td>
+                                <td>{{ comment.content|slice(0,100) }}...</td>
                                 <td>{{ comment.nickname }}</td>
                                 <td class="small">{{ comment.isActive ? 'Yes' : 'No' }}</td>
                                 <td>{{ comment.email }}</td>
@@ -70,7 +84,10 @@
                         </tbody>
                     </table>
 
+                    {#
                     <a class="btn btn-success" href="{{ path('comment_new') }}">Create new</a>
+                    #}
+                    
                 </div>
             </div>
             <div class="pagination justify-content-center px-2 mt-4">

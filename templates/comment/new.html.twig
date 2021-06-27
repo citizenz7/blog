@@ -3,9 +3,38 @@
 {% block title %}New Comment{% endblock %}
 
 {% block body %}
-    <h1>Create new Comment</h1>
+<main id="main">
 
-    {{ include('comment/_form.html.twig') }}
+    <!-- ======= Blog Section ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
 
-    <a href="{{ path('comment_index') }}">back to list</a>
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Comment</h2>
+
+                <ol>
+                    <li><a href="{{ path('home') }}">Home</a></li>
+                    <li><a href="{{ path('admin') }}">Admin</a></li>
+                    <li>Comment index</li>
+                </ol>
+            </div>
+
+        </div>
+    </section><!-- End Blog Section -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row d-flex justify-content-center mb-5">
+                <div class="col">
+                    <h1>Create new Comment</h1>
+
+                    {{ include('comment/_form.html.twig') }}
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 {% endblock %}

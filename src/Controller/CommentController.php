@@ -3,19 +3,19 @@
 namespace App\Controller;
 
 use App\Entity\Comment;
-use App\Form\Comment1Type;
+use App\Form\CommentType;
 use App\Repository\CommentRepository;
 use Knp\Component\Pager\PaginatorInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 class CommentController extends AbstractController
 {
     /**
-     * @Route("/admin/comment", name="comment_index", methods={"GET"})
+     * @Route("/admin/comment", name="comment_admin_index", methods={"GET"})
      * @param CommentRepository $commentRepository
      * @return Response
      */
@@ -37,14 +37,14 @@ class CommentController extends AbstractController
     }
 
     /**
-     * @Route("/comment/new", name="comment_new", methods={"GET","POST"})
+     * @Route("/admin/comment/new", name="comment_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
      */
     public function new(Request $request): Response
     {
         $comment = new Comment();
-        $form = $this->createForm(Comment1Type::class, $comment);
+        $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -62,7 +62,7 @@ class CommentController extends AbstractController
     }
 
     /**
-     * @Route("/comment/{id}", name="comment_show", methods={"GET"})
+     * @Route("/admin/comment/{id}", name="comment_show", methods={"GET"})
      * @param Comment $comment
      * @return Response
      */
@@ -74,20 +74,21 @@ class CommentController extends AbstractController
     }
 
     /**
-     * @Route("/comment/{id}/edit", name="comment_edit", methods={"GET","POST"})
+     * @Route("/admin/comment/{id}/edit", name="comment_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Comment $comment
      * @return Response
      */
     public function edit(Request $request, Comment $comment): Response
     {
-        $form = $this->createForm(Comment1Type::class, $comment);
+        $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('comment_index');
+            $this->addFlash('message', 'Comment edited with success!');
+            return $this->redirectToRoute('comment_admin_index');
         }
 
         return $this->render('comment/edit.html.twig', [
@@ -110,6 +111,7 @@ class CommentController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('comment_index');
+        $this->addFlash('message', 'Comment deleted with success!');
+        return $this->redirectToRoute('comment_admin_index');
     }
 }

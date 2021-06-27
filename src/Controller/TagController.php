@@ -113,7 +113,8 @@ class TagController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('tag_index');
+            $this->addFlash('message', 'Tag edited with success!');
+            return $this->redirectToRoute('tag_admin_index');
         }
 
         return $this->render('tag/edit.html.twig', [
@@ -136,6 +137,7 @@ class TagController extends AbstractController
             $entityManager->flush();
         }
 
+        $this->addFlash('message_deleted', 'Tag deleted with success!');
         return $this->redirectToRoute('tag_index');
     }
 }
