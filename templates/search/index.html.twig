@@ -39,7 +39,7 @@
                                     <a href="{{ path('article_show', {'slug': article.slug}) }}">
                                         <h6 class="text-dark"><i class="bi bi-arrow-down-right-square-fill text-primary"></i> {{ article.title }}</h6>
                                         <div class="text-dark small p-1 rounded">
-                                            {% trans %}Posted on{% endtrans %} {{ article.createdAt|date("F jS \\a\\t g:ia") }} 
+                                            {% trans %}Posted on{% endtrans %} {{ article.createdAt|format_datetime('medium', 'short') }} 
                                             {% trans %}by{% endtrans %} {{ article.author }}
                                         </div>
                                     </a>

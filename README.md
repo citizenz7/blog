@@ -1,5 +1,6 @@
 # BLOG
 `BLOG` is a blog based system made with Symfony 5 framework.
+It's a multilingual blog
 
 See TO DO section at the bottom.
 
@@ -23,6 +24,9 @@ Free template (HTML + CSS) is from https://bootstrapmade.com (Moderna)
 * Google fonts (Open Sans)
 ### Translation
 * Translation function (TransalatorInterface): EN, FR
+Add language with (as an example for spanish language): `symfony console translation:update --force es` then you'll have a new file in /translations folder you'll need to translate manually.
+Don't forget to update config/services.yaml adding `es` to `app.locales` like this:
+`app.locales: [en, fr, es]`
 ### Entities
 * articles
 * comments
@@ -67,6 +71,5 @@ Free template (HTML + CSS) is from https://bootstrapmade.com (Moderna)
 * ... then start to create new categories and new articles
 * tags will be automaticaly created as you write them (SELECT2 JQuery plugin)
 ## TO DO
-* file upload:
-    * image
-    * file
+* templates:
+    * sort by column in admin dashboard

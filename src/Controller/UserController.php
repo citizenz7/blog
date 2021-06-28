@@ -37,6 +37,22 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+             // Upload image
+             $uploadedFile = $form['image']->getData();
+
+             if ($uploadedFile) {
+                 $destination = $this->getParameter("users_images_directory");
+ 
+                 $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+                 $newFilename = $originalFilename.'-'.uniqid().'.'.$uploadedFile->guessExtension();
+ 
+                 $uploadedFile->move(
+                     $destination,
+                     $newFilename
+                 );
+                 $user->setImage($newFilename);
+             }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
@@ -74,6 +90,22 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Upload image
+            $uploadedFile = $form['image']->getData();
+
+            if ($uploadedFile) {
+                $destination = $this->getParameter("users_images_directory");
+
+                $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = $originalFilename.'-'.uniqid().'.'.$uploadedFile->guessExtension();
+
+                $uploadedFile->move(
+                    $destination,
+                    $newFilename
+                );
+                $user->setImage($newFilename);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             $this->addFlash('message', 'User edited with success!');
@@ -94,6 +126,15 @@ class UserController extends AbstractController
      */
     public function delete(Request $request, User $user): Response
     {
+        // Delete image
+        $image = $user->getImage();
+        if($image) {
+            $nomImage = $this->getParameter("users_images_directory") . '/' . $image;
+            if(file_exists($nomImage)) {
+                unlink($nomImage);
+            }
+        }
+
         if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($user);

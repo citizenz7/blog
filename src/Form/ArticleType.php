@@ -2,16 +2,17 @@
 
 namespace App\Form;
 
+use App\Entity\Tag;
 use App\Entity\Article;
 use App\Entity\Category;
-use App\Entity\Tag;
 use Doctrine\ORM\EntityRepository;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ArticleType extends AbstractType
@@ -35,10 +36,22 @@ class ArticleType extends AbstractType
             //->add('created_at')
             //->add('updated_at')
             //->add('is_active')
-            ->add('image', UrlType::class, [
-                'label' => 'Image URL',
+            ->add('image', FileType::class, [
+                'label' => 'Article image',
                 'attr' => [
                     'class' => 'form-control mb-3'
+                ],
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '4M',
+                        'mimeTypes' => [
+                            'image/png',
+                            'image/jpeg'
+                        ],
+                        'mimeTypesMessage' => 'Image is not valid',
+                    ])
                 ]
             ])
             //->add('slug')

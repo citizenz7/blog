@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ site_name }}: Comment index{% endblock %}
+{% block title %}{{ site_name }}: {% trans %}Comment index{% endtrans %}{% endblock %}
 
 {% block body %}
 <main id="main">
@@ -10,7 +10,7 @@
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
-                <h2>Comment</h2>
+                <h2>{% trans %}Comment{% endtrans %}</h2>
 
                 <ol>
                     <li><a href="{{ path('home') }}">{% trans %}Home{% endtrans %}</a></li>
@@ -64,7 +64,7 @@
                                 <td>{{ comment.content|slice(0,100) }}...</td>
                                 <td>{{ comment.nickname }}</td>
                                 <td>{{ comment.email }}</td>
-                                <td class="small">{{ comment.createdAt ? comment.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                                <td class="small">{{ comment.createdAt ? comment.createdAt|format_datetime('medium', 'short') : '' }}</td>
                                 <td class="small">{{ comment.rgpd ? 'Yes' : 'No' }}</td>
                                 <td>
                                     <a class="btn btn-sm btn-info" href="{{ path('comment_show', {'id': comment.id}) }}">{% trans %}show{% endtrans %}</a>

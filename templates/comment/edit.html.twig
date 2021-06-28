@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ site_name }}: Edit Comment{% endblock %}
+{% block title %}{{ site_name }}: {% trans %}Edit Comment{% endtrans %}{% endblock %}
 
 {% block body %}
 <main id="main">
@@ -10,7 +10,7 @@
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
-                <h2>Comment</h2>
+                <h2>{% trans %}Comment{% endtrans %}</h2>
 
                 <ol>
                     <li><a href="{{ path('home') }}">{% trans %}Home{% endtrans %}</a></li>

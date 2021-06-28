@@ -20,24 +20,18 @@ class CommentType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
-                'label' => false,
                 'attr' => [
-                    'class' => 'form-control mb-3',
-                    'placeholder' => 'Your email address'
+                    'class' => 'form-control mb-3'
                 ]
             ])
             ->add('nickname', TextType::class, [
-                'label' => false,
                 'attr' => [
-                    'class' => 'form-control mb-3',
-                    'placeholder' => 'Your nick'
+                    'class' => 'form-control mb-3'
                 ]
             ])
             ->add('content', TextareaType::class, [
-                'label' => false,
                 'attr' => [
-                    'class' => 'form-control mb-3',
-                    'placeholder' =>'Your comment'
+                    'class' => 'form-control mb-3'
                 ]
             ])
             //->add('created_at')
@@ -46,10 +40,6 @@ class CommentType extends AbstractType
             ->add('rgpd', CheckboxType::class, [
                 'constraints' => [
                     new NotBlank()
-                ],
-                'label' => 'Agree terms of service',
-                'attr' => [
-                    'class' => 'mx-2 mb-3'
                 ]
             ])
             ->add('parentid', HiddenType::class, [
@@ -57,7 +47,8 @@ class CommentType extends AbstractType
             ])
             ->add('captcha', CaptchaType::class, [
                 'attr' => [
-                    'style' => 'width: 200px'
+                    'style' => 'width: 200px',
+                    'class' => 'mb-3'
                 ]
             ])
             /*->add('send', SubmitType::class, [

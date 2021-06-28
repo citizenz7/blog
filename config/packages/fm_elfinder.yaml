@@ -11,7 +11,7 @@ fm_elfinder:
                     uploads:
                         show_hidden: false # Masque les fichiers cachés
                         driver: LocalFileSystem
-                        path: uploads/images # Chemin d'upload
+                        path: uploads/images/articles # Chemin d'upload
                         upload_allow: ['image/png', 'image/jpg', 'image/jpeg'] # Fichiers autorisés
                         upload_deny: ['all'] # Fichiers interdits
-                        upload_max_size: 5M # Taille maximum
+                        upload_max_size: 4M # Taille maximum

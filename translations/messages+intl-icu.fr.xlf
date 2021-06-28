@@ -323,7 +323,7 @@
       </trans-unit>
       <trans-unit id="dDUw20Q" resname="Please sign in">
         <source>Please sign in</source>
-        <target>Veuillez vous connecter</target>
+        <target>Veuillez vous identifier</target>
       </trans-unit>
       <trans-unit id="588_9PF" resname="Password">
         <source>Password</source>
@@ -552,6 +552,94 @@
       <trans-unit id="F7QsEmm" resname="Article index">
         <source>Article index</source>
         <target>Liste des articles</target>
+      </trans-unit>
+      <trans-unit id="wR61EIV" resname="ARTICLES">
+        <source>ARTICLES</source>
+        <target>ARTICLES</target>
+      </trans-unit>
+      <trans-unit id="ygD8z7Q" resname="error">
+        <source>error</source>
+        <target>erreur</target>
+      </trans-unit>
+      <trans-unit id="VKDowX6" resname="Error">
+        <source>Error</source>
+        <target>Erreur</target>
+      </trans-unit>
+      <trans-unit id="2Y7g5fk" resname="ERROR">
+        <source>ERROR</source>
+        <target>ERREUR</target>
+      </trans-unit>
+      <trans-unit id="yLPYZM9" resname="Click the button below">
+        <source>Click the button below</source>
+        <target>Cliquez le bouton ci-dessous</target>
+      </trans-unit>
+      <trans-unit id="LMK4hvw" resname="&quot;You shall not pass!&quot;">
+        <source>"You shall not pass!"</source>
+        <target>"Vous ne passerez pas !"</target>
+      </trans-unit>
+      <trans-unit id="QBQslRX" resname="UH OH! You're lost.">
+        <source>UH OH! You're lost.</source>
+        <target>Oula ! Vous êtes perdu.</target>
+      </trans-unit>
+      <trans-unit id="zt9CCIH" resname="The page you're looking for does not exist. How you got there is a mystery...">
+        <source>The page you're looking for does not exist. How you got there is a mystery...</source>
+        <target>La page que vous recherchez n'existe pas. Je ne comprends même pas comment vous êtes arrivé là...</target>
+      </trans-unit>
+      <trans-unit id="nIn3Ksz" resname="Admin Index">
+        <source>Admin Index</source>
+        <target>Admin Index</target>
+      </trans-unit>
+      <trans-unit id="XV7hV3U" resname="Presentation">
+        <source>Presentation</source>
+        <target>Présentation</target>
+      </trans-unit>
+      <trans-unit id="wlM3BVR" resname="Roles">
+        <source>Roles</source>
+        <target>Rôles</target>
+      </trans-unit>
+      <trans-unit id="K1w9JnI" resname="Contact">
+        <source>Contact</source>
+        <target>Contact</target>
+      </trans-unit>
+      <trans-unit id="hDk63Yx" resname="article">
+        <source>article</source>
+        <target>article</target>
+      </trans-unit>
+      <trans-unit id="3NHVIj9" resname="Name">
+        <source>Name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="lpzL089" resname="Email">
+        <source>Email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="egV72Za" resname="Your message">
+        <source>Your message</source>
+        <target>Votre message</target>
+      </trans-unit>
+      <trans-unit id="ur9GrsQ" resname="Please copy antispam code">
+        <source>Please copy antispam code</source>
+        <target>Veuillez recopier le code antispam</target>
+      </trans-unit>
+      <trans-unit id="EzEnW8U" resname="Tags">
+        <source>Tags</source>
+        <target>Tags</target>
+      </trans-unit>
+      <trans-unit id="gS70Ec4" resname="Copy antispam code">
+        <source>Copy antispam code</source>
+        <target>Veuillez recopier le code antispam</target>
+      </trans-unit>
+      <trans-unit id="gS70Ea1" resname="Article image">
+        <source>Article image</source>
+        <target>Image de l'article</target>
+      </trans-unit>
+      <trans-unit id="gS70Ea2" resname="Article's categories. Choose one or more.">
+        <source>Article's categories. Choose one or more.</source>
+        <target>Catégories de l'article. Choisissez-en une ou plusieurs.</target>
+      </trans-unit>
+      <trans-unit id="gS70Ea3" resname="Article's tags. Choose one or more.">
+        <source>Article's tags. Choose one or more.</source>
+        <target>Tags de l'article. Choisissez-en un ou plusieurs.</target>
       </trans-unit>
     </body>
   </file>

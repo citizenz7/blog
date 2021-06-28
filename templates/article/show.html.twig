@@ -13,8 +13,8 @@
                 <h2>Blog</h2>
 
                 <ol>
-                    <li><a href="{{ path('home') }}">Home</a></li>
-                    <li>article</li>
+                    <li><a href="{{ path('home') }}">{% trans %}Home{% endtrans %}</a></li>
+                    <li>{% trans %}article{% endtrans %}</li>
                     <li>{{ article.title }}</li>
                 </ol>
             </div>
@@ -40,7 +40,7 @@
                     <article class="entry entry-single">
 
                         <div class="entry-img">
-                            <img src="{{ article.image }}" alt="{{ article.title }}" class="img-fluid">
+                            <img src="../uploads/images/articles/{{ article.image }}" alt="{{ article.title }}" class="img-fluid">
                         </div>
 
                         <h2 class="entry-title">
@@ -55,7 +55,7 @@
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i class="bi bi-clock"></i>
-                                    <a href="">{{ article.createdAt|date("F jS \\a\\t g:ia") }}</a>
+                                    <a href="">{{ article.createdAt|format_datetime('medium', 'short') }}</a>
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i class="bi bi-chat-dots"></i>
@@ -91,7 +91,7 @@
                     </article><!-- End blog entry -->
 
                     <div class="blog-author d-flex align-items-center">
-                        <img src="{{ article.author.image }}" class="rounded-circle float-left" alt="">
+                        <img src="{{ article.author.image }}" class="rounded-circle float-start" style="max-width: 80px; width: 100%;" alt="{{ article.author.username }}">
                         <div>
                             <h5>{% trans %}Posted by{% endtrans %} {{ article.author.username }}</h5>
                             <div class="social-links">
@@ -143,8 +143,8 @@
                                             <i class="bi bi-reply-fill"></i> {% trans %}Reply{% endtrans %}
                                         </a>
                                     </h5>
-                                    <time datetime="{{ comment.createdAt|date("F jS \\a\\t g:ia") }}">
-                                        {{ comment.createdAt|date("F jS \\a\\t g:ia") }}
+                                    <time datetime="{{ comment.createdAt|format_datetime('medium', 'short') }}">
+                                        {{ comment.createdAt|format_datetime('medium', 'short') }}
                                     </time>
                                     <p>
                                         {{ comment.content|raw }}
@@ -162,8 +162,8 @@
                                         {{ reply.nickname }}
                                     </h5>
                                     <div>
-                                        <time datetime="{{ reply.createdAt|date("F jS \\a\\t g:ia") }}">
-                                            {{ reply.createdAt|date("F jS \\a\\t g:ia") }}
+                                        <time datetime="{{ reply.createdAt|format_datetime('medium', 'short') }}">
+                                            {{ reply.createdAt|format_datetime('medium', 'short') }}
                                         </time>
                                     </div>
                                     <p>
@@ -182,7 +182,25 @@
                             <h4>{% trans %}Leave a Reply{% endtrans %}</h4>
                             <p>{% trans %}Your email address will not be published.{% endtrans %}</p>
                             {{ form_start(commentForm) }}
-                                {{ form_widget(commentForm) }}
+                                {#{ form_widget(commentForm) }#}
+                                {% trans %}Email{% endtrans %}:<br>
+                                {{ form_row(commentForm.email, {'label': false}) }}
+                                {% trans %}Name{% endtrans %}:<br>
+                                {{ form_row(commentForm.nickname, {'label': false}) }}
+                                {% trans %}Content{% endtrans %}:<br>
+                                {{ form_row(commentForm.content, {'label': false}) }}
+                                <table class="mb-3">
+                                    <tr>
+                                        <td width="5%">
+                                            {{ form_row(commentForm.rgpd, {'label': false}) }}
+                                        </td>
+                                        <td>
+                                            {% trans %}Agree terms of service{% endtrans %}
+                                        </td>
+                                    </tr>
+                                </table>
+                                {% trans %}Copy antispam code{% endtrans %}:<br>
+                                {{ form_row(commentForm.captcha, {'label': false}) }}
                                 <div class="mt-2">
                                     <button class="btn btn-sm btn-success">{% trans %}Send message{% endtrans %}</button>
                                     <button class="btn btn-sm btn-secondary" type="reset">{% trans %}Reset{% endtrans %}</button>

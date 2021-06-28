@@ -15,7 +15,7 @@
                 <ol>
                     <li><a href="{{ path('home') }}">{% trans %}Home{% endtrans %}</a></li>
                     <li><a href="{{ path('admin') }}">Admin</a></li>
-                    <li>Article index</li>
+                    <li>{% trans %}Article index{% endtrans %}</li>
                 </ol>
             </div>
 
@@ -62,8 +62,8 @@
                             <tr>
                                 <td>{{ article.id }}</td>
                                 <td>{{ article.title }}</td>
-                                <td class="small">{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                                <td class="small">{{ article.updatedAt ? article.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                                <td class="small">{{ article.createdAt ? article.createdAt|format_datetime('medium', 'short') : '' }}</td>
+                                <td class="small">{{ article.updatedAt ? article.updatedAt|format_datetime('medium', 'short') : '' }}</td>
                                 <td class="small">{{ article.isActive ? 'Yes' : 'No' }}</td>
                                 <td>
                                     <a class="btn btn-sm btn-info" href="{{ path('article_show', {'slug': article.slug}) }}">{% trans %}show{% endtrans %}</a>

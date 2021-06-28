@@ -54,7 +54,7 @@
                             </tr>
                             <tr>
                                 <th>{% trans %}Created_at{% endtrans %}</th>
-                                <td>{{ comment.createdAt ? comment.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                                <td>{{ comment.createdAt ? comment.createdAt|format_datetime('medium', 'short') : '' }}</td>
                             </tr>
                             <tr>
                                 <th>Rgpd</th>

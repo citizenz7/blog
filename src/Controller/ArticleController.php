@@ -48,10 +48,27 @@ class ArticleController extends AbstractController
     public function new(Request $request): Response
     {
         $article = new Article();
+
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Upload image
+            $uploadedFile = $form['image']->getData();
+
+            if ($uploadedFile) {
+                $destination = $this->getParameter("articles_images_directory");
+
+                $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = $originalFilename.'-'.uniqid().'.'.$uploadedFile->guessExtension();
+
+                $uploadedFile->move(
+                    $destination,
+                    $newFilename
+                );
+                $article->setImage($newFilename);
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
 
             // Article creation date and time
@@ -140,6 +157,29 @@ class ArticleController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Upload image
+            $uploadedFile = $form['image']->getData();
+
+            if ($uploadedFile) {
+                $image = $article->getImage();
+                if($image) {
+                    $nomImage = $this->getParameter("articles_images_directory") . '/' . $image;
+                    if(file_exists($nomImage)) {
+                        unlink($nomImage);
+                    }
+                }
+
+                $destination = $this->getParameter("articles_images_directory");
+
+                $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $newFilename = $originalFilename.'-'.uniqid().'.'.$uploadedFile->guessExtension();
+
+                $uploadedFile->move(
+                    $destination,
+                    $newFilename
+                );
+                $article->setImage($newFilename);
+            }
 
             // Modification date and time
             $article->setUpdatedAt(new \DateTimeImmutable());
@@ -164,6 +204,16 @@ class ArticleController extends AbstractController
      */
     public function delete(Request $request, Article $article): Response
     {
+        // Delete image
+        $image = $article->getImage();
+
+        if($image) {
+            $nomImage = $this->getParameter("articles_images_directory") . '/' . $image;
+            if(file_exists($nomImage)) {
+                unlink($nomImage);
+            }
+        }
+
         if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($article);
