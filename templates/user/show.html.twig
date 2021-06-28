@@ -95,6 +95,7 @@
                                         </p>
                                         <div class="row mt-5">
                                             <div class="col d-flex justify-content-end">
+                                                <a class="btn btn-warning me-1" href="{{ path('app_forgot_password_request') }}">{% trans %}reset your password{% endtrans %}</a> 
                                                 <a class="btn btn-success" href="{{ path('user_edit', {'id': user.id}) }}">{% trans %}edit profile{% endtrans %}</a> 
                                             </div>
                                         </div>

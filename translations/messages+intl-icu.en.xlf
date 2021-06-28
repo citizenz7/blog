@@ -621,17 +621,67 @@
         <source>Copy antispam code</source>
         <target>Copy antispam code</target>
       </trans-unit>
-      <trans-unit id="gS70Ea1" resname="Article image">
+      <trans-unit id="Iyr1KHm" resname="Article image">
         <source>Article image</source>
         <target>Article image</target>
       </trans-unit>
-      <trans-unit id="gS70Ea2" resname="Article's categories. Choose one or more.">
+      <trans-unit id="qXbWTEY" resname="Article's categories. Choose one or more.">
         <source>Article's categories. Choose one or more.</source>
         <target>Article's categories. Choose one or more.</target>
       </trans-unit>
-      <trans-unit id="gS70Ea3" resname="Article's tags. Choose one or more.">
+      <trans-unit id="WUzBrPl" resname="Article's tags. Choose one or more.">
         <source>Article's tags. Choose one or more.</source>
         <target>Article's tags. Choose one or more.</target>
+      </trans-unit>
+      <trans-unit id="WfpDeb4" resname="Reset your password">
+        <source>Reset your password</source>
+        <target>Reset your password</target>
+      </trans-unit>
+      <trans-unit id="4O3_s6c" resname="Reset password">
+        <source>Reset password</source>
+        <target>Reset password</target>
+      </trans-unit>
+      <trans-unit id="pOLodE6" resname="Enter your email address and we we will send you a link to reset your&#10;                            password.">
+        <source>Enter your email address and we we will send you a link to reset your
+                            password.</source>
+        <target>Enter your email address and we we will send you a link to reset your
+                            password.</target>
+      </trans-unit>
+      <trans-unit id="y2XxXvP" resname="Send password reset email">
+        <source>Send password reset email</source>
+        <target>Send password reset email</target>
+      </trans-unit>
+      <trans-unit id="ylHOH7F" resname="Hi!">
+        <source>Hi!</source>
+        <target>Hi!</target>
+      </trans-unit>
+      <trans-unit id="vQH5j0c" resname="To reset your password, please visit the following link">
+        <source>To reset your password, please visit the following link</source>
+        <target>To reset your password, please visit the following link</target>
+      </trans-unit>
+      <trans-unit id="U28cTzJ" resname="Password Reset Email Sent">
+        <source>Password Reset Email Sent</source>
+        <target>Password Reset Email Sent</target>
+      </trans-unit>
+      <trans-unit id="ztgfIk9" resname="If an account matching your email exists, then an email was just sent that contains a&#10;                        link that you can use to reset your password.&#10;                        This link will expire in">
+        <source>If an account matching your email exists, then an email was just sent that contains a
+                        link that you can use to reset your password.
+                        This link will expire in</source>
+        <target>If an account matching your email exists, then an email was just sent that contains a
+                        link that you can use to reset your password.
+                        This link will expire in</target>
+      </trans-unit>
+      <trans-unit id="bs9avOq" resname="If you don't receive an email please check your spam folder or">
+        <source>If you don't receive an email please check your spam folder or</source>
+        <target>If you don't receive an email please check your spam folder or</target>
+      </trans-unit>
+      <trans-unit id="W13t7jL" resname="try again">
+        <source>try again</source>
+        <target>try again</target>
+      </trans-unit>
+      <trans-unit id="dW2OSVc" resname="reset your password">
+        <source>reset your password</source>
+        <target>reset your password</target>
       </trans-unit>
     </body>
   </file>
