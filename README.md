@@ -2,8 +2,6 @@
 `BLOG` is a blog based system made with Symfony 5 framework.
 It's a multilingual blog
 
-See TO DO section at the bottom.
-
 ## Template
 Free template (HTML + CSS) is from https://bootstrapmade.com (Moderna)
 
@@ -22,10 +20,11 @@ Free template (HTML + CSS) is from https://bootstrapmade.com (Moderna)
 * Javascript (Aos, Glightbox, Isotope, Validate, Purecounter, swipper, Waypoints, Bootstrap)
 * Bootstrap (v5)
 * Google fonts (Open Sans)
+* Font awesome 5
 ### Translation
-* Translation function (TransalatorInterface): EN, FR
-Add language with (as an example for spanish language): `symfony console translation:update --force es` then you'll have a new file in /translations folder you'll need to translate manually.
-Don't forget to update config/services.yaml adding `es` to `app.locales` like this:
+* Translation function (TransalatorInterface): EN, FR, ES
+Add language with (as an example for spanish language): `symfony console translation:update --force es` then you'll have a new file in /translations folder you'll need to translate manually. Same command if you want to update the translation.
+If you add any language, don't forget to update config/services.yaml adding the language 2 letters to `app.locales` like this:
 `app.locales: [en, fr, es]`
 ### Entities
 * articles
@@ -36,7 +35,6 @@ Don't forget to update config/services.yaml adding `es` to `app.locales` like th
 ### Pages
 * home
 * contact
-* articles index
 * article single
 * categories index
 * category single
@@ -70,6 +68,3 @@ Don't forget to update config/services.yaml adding `es` to `app.locales` like th
 * login with this admin account and connect to admin dashboard (/login)
 * ... then start to create new categories and new articles
 * tags will be automaticaly created as you write them (SELECT2 JQuery plugin)
-## TO DO
-* templates:
-    * sort by column in admin dashboard

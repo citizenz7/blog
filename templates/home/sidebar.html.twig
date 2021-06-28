@@ -38,7 +38,7 @@
             {% for a in articles %}
             <div class="post-item clearfix">
                 <img src="../uploads/images/articles/{{ a.image }}" alt="{{ a.title }}" class="img-fluid" style="max-width: 85px; width: 100%;">
-                <h4><a href="{{ path('article_show', {'slug': a.slug}) }}">{{ a.title }}</a></h4>
+                <h4><a href="{{ path('article_show', {'slug': a.slug}) }}">{{ a.title }}</a> <span class="small badge bg-primary rounded-pill">{{ a.views }}</span></h4>
                 <time datetime="{{ a.created_at|format_datetime('medium', 'short') }}">{% trans %}Posted on{% endtrans %} {{ a.created_at|format_datetime('medium', 'short') }}</time>
             </div>
             {% endfor %}

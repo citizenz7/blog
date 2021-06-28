@@ -48,8 +48,8 @@
                 <table class="table mb-5">
                     <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>{% trans %}Title{% endtrans %}</th>
+                            <th width="4%">{{ knp_pagination_sortable(tags, 'Id', 'p.id') }}</th>
+                            <th>{{ knp_pagination_sortable(tags, 'Title', 'p.title') }}</th>
                             <th>Slug</th>
                             <th width="11%"></th>
                             <th width="4%"></th>
@@ -79,6 +79,9 @@
 
                 <a class="btn btn-success" href="{{ path('tag_new') }}">{% trans %}Create new ta{% endtrans %}</a>
 
+            </div>
+            <div class="pagination justify-content-center px-2 mt-4">
+                {{ knp_pagination_render(tags) }}
             </div>
         </div>
     </div>

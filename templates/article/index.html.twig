@@ -48,12 +48,13 @@
                     <table class="table table-sm table-hover">
                         <thead>
                             <tr>
-                                <th>Id</th>
-                                <th>{% trans %}Title{% endtrans %}</th>
-                                <th width="12%">{% trans %}Created at{% endtrans %}</th>
-                                <th width="12%">{% trans %}Updated at{% endtrans %}</th>
-                                <th>{% trans %}Active{% endtrans %}</th>
-                                <th width="10%"></th>
+                                <th width="4%">{{ knp_pagination_sortable(articles, 'Id', 'p.id') }}</th>
+                                <th>{{ knp_pagination_sortable(articles, 'Title', 'p.title') }}</th>
+                                <th width="14%" class="small">{{ knp_pagination_sortable(articles, 'Posted on', 'p.created_at') }}</th>
+                                <th width="14%" class="small">{{ knp_pagination_sortable(articles, 'Updated on', 'p.updated_at') }}</th>
+                                <th width="5%" class="small">{{ knp_pagination_sortable(articles, 'Active', 'p.is_active') }}</th>
+                                <th width="5%" class="small">{{ knp_pagination_sortable(articles, 'Views', 'p.views') }}</th>
+                                <th width="12%"></th>
                                 <th width="5%"></th>
                             </tr>
                         </thead>
@@ -65,6 +66,7 @@
                                 <td class="small">{{ article.createdAt ? article.createdAt|format_datetime('medium', 'short') : '' }}</td>
                                 <td class="small">{{ article.updatedAt ? article.updatedAt|format_datetime('medium', 'short') : '' }}</td>
                                 <td class="small">{{ article.isActive ? 'Yes' : 'No' }}</td>
+                                <td class="small">{{ article.views }}</td>
                                 <td>
                                     <a class="btn btn-sm btn-info" href="{{ path('article_show', {'slug': article.slug}) }}">{% trans %}show{% endtrans %}</a>
                                     <a class="btn btn-sm btn-warning" href="{{ path('article_edit', {'id': article.id}) }}">{% trans %}edit{% endtrans %}</a>
