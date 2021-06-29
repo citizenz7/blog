@@ -5,17 +5,19 @@
         {{ form_row(form.content) }}
     </div>
 
-    {% if article.image is not empty %}
-        {% trans %}Active image{% endtrans %}:<br>
-        <img src="{{ asset('uploads/images/articles/' ~ article.image) }}" alt="{{ article.title }}" class="img-fluid mb-3" 
-        style="max-width: 350px; width: 100%;">
-        <p>
-            <a href="{{ path('article_delete_image', {'id': article.id}) }}" class="btn btn-sm btn-danger">{% trans %}Delete image{% endtrans %}</a>
-        </p>
-    {% else %}
-        <div class="text-white bg-danger p-2 mb-2 text-center">
-            <i class="bi bi-exclamation-lg"></i> {% trans %}No active image for this article. Please upload one.{% endtrans %}
-        </div>
+    {% if app.request.get('_route') == 'article_edit' %}
+        {% if article.image is not empty %}
+            {% trans %}Active image{% endtrans %}:<br>
+            <img src="{{ asset('uploads/images/articles/' ~ article.image) }}" alt="{{ article.title }}" class="img-fluid mb-3" 
+            style="max-width: 350px; width: 100%;">
+            <p>
+                <a href="{{ path('article_delete_image', {'id': article.id}) }}" class="btn btn-sm btn-danger">{% trans %}Delete image{% endtrans %}</a>
+            </p>
+        {% else %}
+            <div class="text-white bg-danger p-2 mb-2 text-center">
+                <i class="bi bi-exclamation-lg"></i> {% trans %}No active image for this article. Please upload one.{% endtrans %}
+            </div>
+        {% endif %}
     {% endif %}
     
     {{ form_row(form.image) }}

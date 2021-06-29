@@ -62,7 +62,7 @@ class ArticleType extends AbstractType
                 'choice_label' => 'title',
                 'multiple' => true,
                 'attr' => [
-                    'class' => 'form-control mb-3 select-categories'
+                    'class' => 'form-control mb-3'
                 ],
                 'query_builder' => function(EntityRepository $er) {
                     return $er->createQueryBuilder('c')
