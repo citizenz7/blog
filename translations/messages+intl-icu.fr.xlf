@@ -650,7 +650,8 @@
         <target>Réinitialisez le mot de passe</target>
       </trans-unit>
       <trans-unit id="pOLodE6" resname="Enter your email address and we we will send you a link to reset your&#10;                            password.">
-        <source>Enter your email address and we we will send you a link to reset your password.</source>
+        <source>Enter your email address and we we will send you a link to reset your
+                            password.</source>
         <target>Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe.</target>
       </trans-unit>
       <trans-unit id="y2XxXvP" resname="Send password reset email">
@@ -686,6 +687,18 @@
       <trans-unit id="dW2OSVc" resname="reset your password">
         <source>reset your password</source>
         <target>réinitialisez votre mot de passe</target>
+      </trans-unit>
+      <trans-unit id="BHZbeis" resname="Active image">
+        <source>Active image</source>
+        <target>Image de l'article</target>
+      </trans-unit>
+      <trans-unit id="_7yY7mO" resname="Delete image">
+        <source>Delete image</source>
+        <target>Supprimer l'image</target>
+      </trans-unit>
+      <trans-unit id="TGpgYKv" resname="No active image for this article. Please upload one.">
+        <source>No active image for this article. Please upload one.</source>
+        <target>Il n'y a aucune image active pour cet article. Veuillez en choisir une</target>
       </trans-unit>
     </body>
   </file>

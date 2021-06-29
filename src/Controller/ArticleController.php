@@ -6,8 +6,10 @@ use App\Entity\Article;
 use App\Entity\Comment;
 use App\Form\ArticleType;
 use App\Form\CommentType;
+use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
+use phpDocumentor\Reflection\Types\Null_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -194,6 +196,29 @@ class ArticleController extends AbstractController
             'article' => $article,
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/admin/article/{id}/delimage", name="article_delete_image", methods={"GET"})
+     */
+    public function deleteImage(Request $request, Article $article): Response
+    {
+        // Delete article's image in folder
+        $image = $article->getImage();
+        if($image) {
+            $nomImage = $this->getParameter("articles_images_directory") . '/' . $image;
+            if(file_exists($nomImage)) {
+                unlink($nomImage);
+            }
+        }
+
+        // Set image to "nothing" in DB
+        $article->setImage('');       
+        $this->getDoctrine()->getManager()->flush();
+
+        // Redirect to edit page
+        $this->addFlash('image_delete', 'Article\'s image deleted with success!');
+        return $this->redirectToRoute('article_edit', ['id' => $article->getId()]);
     }
 
     /**

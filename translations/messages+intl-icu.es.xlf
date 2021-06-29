@@ -688,6 +688,18 @@
         <source>reset your password</source>
         <target>Restablecer su contraseña</target>
       </trans-unit>
+      <trans-unit id="BHZbeis" resname="Active image">
+        <source>Active image</source>
+        <target>Imagen activa</target>
+      </trans-unit>
+      <trans-unit id="_7yY7mO" resname="Delete image">
+        <source>Delete image</source>
+        <target>Eliminar Imagen</target>
+      </trans-unit>
+      <trans-unit id="TGpgYKv" resname="No active image for this article. Please upload one.">
+        <source>No active image for this article. Please upload one.</source>
+        <target>No hay imagen activa para este artículo. Sube uno.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
