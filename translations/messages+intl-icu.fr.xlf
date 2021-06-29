@@ -23,7 +23,7 @@
       </trans-unit>
       <trans-unit id="KzMbw2Q" resname="Posted by">
         <source>Posted by</source>
-        <target>Posté le</target>
+        <target>Posté par</target>
       </trans-unit>
       <trans-unit id="K0JE_yZ" resname="comments">
         <source>comments</source>
@@ -699,6 +699,10 @@
       <trans-unit id="TGpgYKv" resname="No active image for this article. Please upload one.">
         <source>No active image for this article. Please upload one.</source>
         <target>Il n'y a aucune image active pour cet article. Veuillez en choisir une</target>
+      </trans-unit>
+      <trans-unit id="r9gMWhu" resname="Posted">
+        <source>Posted</source>
+        <target>Posté</target>
       </trans-unit>
     </body>
   </file>

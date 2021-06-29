@@ -59,7 +59,11 @@
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i class="bi bi-chat-dots"></i>
-                                    <a href="">{{ article.comment|length }} {% trans %}Comments{% endtrans %}</a>
+                                    {% if (article.comment|length) <= 1  %}
+                                        <a href="">{{ article.comment|length }} {% trans %}Comment{% endtrans %}</a>
+                                    {% else %}
+                                        <a href="">{{ article.comment|length }} {% trans %}Comments{% endtrans %}</a>
+                                    {% endif %}
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <i class="bi bi-eye"></i>

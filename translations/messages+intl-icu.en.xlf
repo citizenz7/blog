@@ -695,6 +695,10 @@
         <source>No active image for this article. Please upload one.</source>
         <target>No active image for this article. Please upload one.</target>
       </trans-unit>
+      <trans-unit id="r9gMWhu" resname="Posted">
+        <source>Posted</source>
+        <target>Posted</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

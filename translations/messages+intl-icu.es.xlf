@@ -700,6 +700,10 @@
         <source>No active image for this article. Please upload one.</source>
         <target>No hay imagen activa para este artículo. Sube uno.</target>
       </trans-unit>
+      <trans-unit id="r9gMWhu" resname="Posted">
+        <source>Posted</source>
+        <target>Publicado</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

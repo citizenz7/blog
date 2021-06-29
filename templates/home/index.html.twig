@@ -60,8 +60,14 @@
                             <div class="entry-meta">
                                 <ul>
                                     <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="">{% trans %}Posted by{% endtrans %} {{ art.author }}</a></li>
-                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="">{% trans %}Posted on{% endtrans %} {{ art.createdAt|format_datetime('medium', 'short') }}</a></li>
-                                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="">12 {% trans %}Comments{% endtrans %}</a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="">{% trans %}Posted {% endtrans %} {{ art.createdAt|ago }}</a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> 
+                                        {% if (art.comment|length) <= 1  %}
+                                            <a href="">{{ art.comment|length }} {% trans %}Comment{% endtrans %}</a>
+                                        {% else %}
+                                            <a href="">{{ art.comment|length }} {% trans %}Comments{% endtrans %}</a>
+                                        {% endif %}
+                                    </li>
                                     <li class="d-flex align-items-center"><i class="bi bi-eye"></i> <a href="">{{ art.views }} {% trans %}views{% endtrans %}</a></li>
                                 </ul>
                             </div>
