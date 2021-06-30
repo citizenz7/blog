@@ -716,7 +716,7 @@
         <source>Thank you for your registration ! You will quickly receive an email to validate your address.</source>
         <target>Merci pour votre inscription ! Vous allez rapidement recevoir un e-mail afin de valider votre adresse.</target>
       </trans-unit>
-      <trans-unit id="4L37xr7" resname="Your email address has been verified. You're logged in.">
+      <trans-unit id="Kyjdz4N" resname="Your email address has been verified. You're logged in.">
         <source>Your email address has been verified. You're logged in.</source>
         <target>Votre adresse e-mail a été vérifiée. Vous êtes connecté(e).</target>
       </trans-unit>
@@ -724,17 +724,57 @@
         <source>Then please sign-in.</source>
         <target>Veuillez alors vous connecter.</target>
       </trans-unit>
-      <trans-unit id="Il4.Cjx" resname="User edited with success!">
+      <trans-unit id="Ave2xbb" resname="User edited with success!">
         <source>User edited with success!</source>
         <target>Utilisateur modifié avec succès !</target>
       </trans-unit>
-      <trans-unit id="Il4.Cjy" resname="Update">
+      <trans-unit id="wcEAnT8" resname="Update">
         <source>Update</source>
         <target>Modifier</target>
       </trans-unit>
-      <trans-unit id="Il4.Cjz" resname="Save">
+      <trans-unit id="FQn1YfJ" resname="Save">
         <source>Save</source>
         <target>Enregistrer</target>
+      </trans-unit>
+      <trans-unit id="tKc2V0D" resname="Stats">
+        <source>Stats</source>
+        <target>Stats</target>
+      </trans-unit>
+      <trans-unit id="qAgRz2i" resname="Posts">
+        <source>Posts</source>
+        <target>Articles</target>
+      </trans-unit>
+      <trans-unit id="acQEWR6" resname="Views">
+        <source>Views</source>
+        <target>Lectures</target>
+      </trans-unit>
+      <trans-unit id="aS4hs5k" resname="Links index">
+        <source>Links index</source>
+        <target>__Links index</target>
+      </trans-unit>
+      <trans-unit id="0Oit8cX" resname="Link index">
+        <source>Link index</source>
+        <target>__Link index</target>
+      </trans-unit>
+      <trans-unit id="LQM.MIO" resname="Create new link">
+        <source>Create new link</source>
+        <target>__Create new link</target>
+      </trans-unit>
+      <trans-unit id="VdplqFW" resname="LINKS">
+        <source>LINKS</source>
+        <target>__LINKS</target>
+      </trans-unit>
+      <trans-unit id="PDXlYBS" resname="Links list">
+        <source>Links list</source>
+        <target>__Links list</target>
+      </trans-unit>
+      <trans-unit id="mO4N_zO" resname="New link">
+        <source>New link</source>
+        <target>__New link</target>
+      </trans-unit>
+      <trans-unit id="kCTBl9h" resname="Links">
+        <source>Links</source>
+        <target>__Links</target>
       </trans-unit>
     </body>
   </file>

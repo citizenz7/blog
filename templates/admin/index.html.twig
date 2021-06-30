@@ -27,7 +27,9 @@
         <div class="container" data-aos="fade-up">
 
             <h2 class="text-center fw-bold card py-2 mb-4">{% trans %}DASHBOARD{% endtrans %}</h2>
+
             <div class="row d-flex justify-content-center mb-5">
+
                 <div class="col">
                     <div class="card h-100">
                         <div class="d-grid gap-2 card-body">
@@ -58,6 +60,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="row d-flex justify-content-center mb-5">
                 <div class="col">
                     <div class="card h-100">
                         <div class="d-grid gap-2 card-body">
@@ -75,6 +80,16 @@
                             <a href="{{ path('user_index') }}" class="btn btn-warning fw-bold p-3 fs-6">{% trans %}Users list{% endtrans %}</a>
                             <br>
                             <a href="{{ path('user_new') }}" class="btn btn-success fw-bold p-3 fs-6">{% trans %}New user{% endtrans %}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="d-grid gap-2 card-body">
+                            <h5 class="card-title fw-bold">{% trans %}LINKS{% endtrans %}</h5>
+                            <a href="{{ path('link_admin_index') }}" class="btn btn-warning fw-bold p-3 fs-6">{% trans %}Links list{% endtrans %}</a>
+                            <br>
+                            <a href="{{ path('link_new') }}" class="btn btn-success fw-bold p-3 fs-6">{% trans %}New link{% endtrans %}</a>
                         </div>
                     </div>
                 </div>

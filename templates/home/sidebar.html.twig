@@ -45,7 +45,7 @@
         </div>
 
         <h3 class="sidebar-title">{% trans %}Tags{% endtrans %}</h3>
-        <div class="sidebar-item tags">
+        <div class="sidebar-item tags mb-4">
             <ul>
                 {% for t in tags %}
                 <li>
@@ -54,6 +54,41 @@
                 {% endfor %}
             </ul>
         </div><!-- End sidebar tags-->
+
+        <h3 class="sidebar-title">{% trans %}Links{% endtrans %}</h3>
+        <div class="sidebar-item mb-4">
+            <ul class="list-group list-group-flush text-meta2">
+                {% for l in linksAll %}
+                <li class="list-group-item">
+                    <i class="bi bi-link-45deg"></i> <a href="{{ l.url }}">{{ l.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div><!-- End sidebar links-->
+
+        <h3 class="sidebar-title">{% trans %}Stats{% endtrans %}</h3>
+        <div class="sidebar-item tags">
+            <ul class="list-group list-group-flush text-meta2">
+                <li class="list-group-item d-flex justify-content-between align-items-center">{% trans %}Posts{% endtrans %}
+                    <span class="badge bg-success rounded py-1 px-2 ml-5">
+                        {{ articlesAll | length }}
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">{% trans %}Comments{% endtrans %}
+                    <span class="badge bg-success rounded py-1 px-2 ml-5">
+                        {{ commentsAll | length }}
+                    </span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">{% trans %}Views{% endtrans %}
+                    <span class="badge bg-success rounded py-1 px-2 ml-5">
+                        {% for view in views %}
+                            {{ view.totalViews | number_format(0, '', ' ') }}
+                        {% endfor %}
+                    </span>
+                </li>
+        </ul>
+        </div><!-- End sidebar stats-->
+
 
     </div><!-- End sidebar -->
 

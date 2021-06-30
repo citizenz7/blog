@@ -12,6 +12,8 @@ use App\Repository\UserRepository;
 use App\Repository\ArticleRepository;
 use Twig\Extension\AbstractExtension;
 use App\Repository\CategoryRepository;
+use App\Repository\CommentRepository;
+use App\Repository\LinkRepository;
 
 class sidebarExtension extends AbstractExtension
 {
@@ -36,6 +38,16 @@ class sidebarExtension extends AbstractExtension
     private $tagRepository;
 
     /**
+     * @var CommentRepository
+     */
+    private $commentRepository;
+    
+    /**
+     * @var LinkRepository
+     */
+    private $linkRepository;
+
+    /**
      * @var Environment
      */
     private $twig;
@@ -46,6 +58,8 @@ class sidebarExtension extends AbstractExtension
         CategoryRepository $categoryRepository,
         UserRepository $userRepository,
         TagRepository $tagRepository,
+        CommentRepository $commentRepository,
+        LinkRepository $linkRepository,
         Environment $twig
     )
     {
@@ -53,6 +67,8 @@ class sidebarExtension extends AbstractExtension
         $this->categoryRepository = $categoryRepository;
         $this->userRepository = $userRepository;
         $this->tagRepository = $tagRepository;
+        $this->commentRepository = $commentRepository;
+        $this->linkRepository = $linkRepository;
         $this->twig = $twig;
     }
 
@@ -72,6 +88,8 @@ class sidebarExtension extends AbstractExtension
         $users = $this->userRepository->findAll();
         $views = $this->articleRepository->totalViews();
         $tags = $this->tagRepository->findAll();
+        $commentsAll = $this->commentRepository->findAll();
+        $linksAll = $this->linkRepository->findAll();
 
         // return $this->twig->render('home/sidebar.html.twig', [
         //     'articles' => $articles,
@@ -85,7 +103,7 @@ class sidebarExtension extends AbstractExtension
 
         try {
             return $this->twig->render('home/sidebar.html.twig',
-                compact('articles', 'articlesAll', 'categories', 'categoriesAll', 'users', 'views', 'tags'));
+                compact('articles', 'articlesAll', 'categories', 'categoriesAll', 'users', 'views', 'tags', 'commentsAll', 'linksAll'));
         } catch (LoaderError | RuntimeError | SyntaxError $e) {
         }
     }
