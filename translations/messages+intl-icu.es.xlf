@@ -39,11 +39,11 @@
       </trans-unit>
       <trans-unit id="LMK4hvw" resname="&quot;You shall not pass!&quot;">
         <source>"You shall not pass!"</source>
-        <target>__"No pasaras!"</target>
+        <target>"No pasaras!"</target>
       </trans-unit>
       <trans-unit id="QBQslRX" resname="UH OH! You're lost.">
         <source>UH OH! You're lost.</source>
-        <target>__UH OH! Estas perdido.</target>
+        <target>UH OH! Estas perdido.</target>
       </trans-unit>
       <trans-unit id="zt9CCIH" resname="The page you're looking for does not exist. How you got there is a mystery...">
         <source>The page you're looking for does not exist. How you got there is a mystery...</source>
@@ -51,11 +51,11 @@
       </trans-unit>
       <trans-unit id="bXHdgNa" resname="Tag's articles">
         <source>Tag's articles</source>
-        <target>__Tag's articles</target>
+        <target>Tag's articles</target>
       </trans-unit>
       <trans-unit id="6bXumtW" resname="tag index">
         <source>tag index</source>
-        <target>__tag index</target>
+        <target>índice de etiquetas </target>
       </trans-unit>
       <trans-unit id="0aAZYCY" resname="Tag index">
         <source>Tag index</source>
@@ -75,7 +75,7 @@
       </trans-unit>
       <trans-unit id="ghSLPaI" resname="New Tag">
         <source>New Tag</source>
-        <target>__</target>
+        <target>Nueva etiqueta</target>
       </trans-unit>
       <trans-unit id="nIn3Ksz" resname="Admin Index">
         <source>Admin Index</source>
@@ -223,7 +223,7 @@
       </trans-unit>
       <trans-unit id="HqRCoTS" resname="No">
         <source>No</source>
-        <target>__No</target>
+        <target>No</target>
       </trans-unit>
       <trans-unit id="hDMatXa" resname="Create new user">
         <source>Create new user</source>
@@ -742,31 +742,39 @@
       </trans-unit>
       <trans-unit id="aS4hs5k" resname="Links index">
         <source>Links index</source>
-        <target>__Links index</target>
+        <target>Índice de enlaces</target>
       </trans-unit>
       <trans-unit id="0Oit8cX" resname="Link index">
         <source>Link index</source>
-        <target>__Link index</target>
+        <target>Índice de enlaces</target>
       </trans-unit>
       <trans-unit id="LQM.MIO" resname="Create new link">
         <source>Create new link</source>
-        <target>__Create new link</target>
+        <target>Crear nuevo enlace web</target>
       </trans-unit>
       <trans-unit id="VdplqFW" resname="LINKS">
         <source>LINKS</source>
-        <target>__LINKS</target>
+        <target>ENLACES</target>
       </trans-unit>
       <trans-unit id="PDXlYBS" resname="Links list">
         <source>Links list</source>
-        <target>__Links list</target>
+        <target>Lista de enlaces </target>
       </trans-unit>
       <trans-unit id="mO4N_zO" resname="New link">
         <source>New link</source>
-        <target>__New link</target>
+        <target>Nuevo enlace web</target>
       </trans-unit>
       <trans-unit id="kCTBl9h" resname="Links">
         <source>Links</source>
-        <target>__Links</target>
+        <target>Enlaces web </target>
+      </trans-unit>
+      <trans-unit id="kCTBl9i" resname="Is it active?">
+        <source>Is it active?</source>
+        <target>¿Este artículo está activo?</target>
+      </trans-unit>
+      <trans-unit id="PCEFPeh" resname="Update">
+        <source>Update</source>
+        <target>Actualizar</target>
       </trans-unit>
     </body>
   </file>

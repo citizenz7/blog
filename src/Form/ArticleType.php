@@ -14,6 +14,7 @@ use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class ArticleType extends AbstractType
 {
@@ -35,7 +36,16 @@ class ArticleType extends AbstractType
             ])
             //->add('created_at')
             //->add('updated_at')
-            //->add('is_active')
+            ->add('is_active', ChoiceType::class, [
+                'attr' => [
+                    'class' => 'form-control mb-3'
+                ],
+                'label' => 'Is it active?',
+                'choices' => [
+                    'Yes' => 1,
+                    'No' => 0
+                ],
+            ])
             ->add('image', FileType::class, [
                 'label' => 'Article image',
                 'attr' => [

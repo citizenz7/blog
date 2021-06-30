@@ -21,6 +21,12 @@ twig:
             'Cras fermentum odio eu feugiat lide par naso tierra. 
             Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. 
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+        github_repo: 'https://github.com/citizenz7/blog'
+        github_url: ''
+        twitter_url: ''
+        facebook_url: ''
+        instagram_url: ''
+        linkedin_url: ''
 
 when@test:
     twig:

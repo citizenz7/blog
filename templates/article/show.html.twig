@@ -44,7 +44,7 @@
                         </div>
 
                         <h2 class="entry-title">
-                            <a href="">{{ article.title }}</a>
+                            {{ article.title }}
                         </h2>
 
                         <div class="entry-meta">
@@ -69,6 +69,26 @@
                                     <i class="bi bi-eye"></i>
                                     <a href="">{{ article.views }} {% trans %}views{% endtrans %}</a>
                                 </li>
+                            </ul>
+                            <ul class="mt-2">
+                                <li class="d-flex align-items-center">
+                                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v8.0" nonce="cjDMoHtB"></script>
+                                    <div class="fb-share-button" data-href="{{ article.slug }}" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ article.slug }}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">{% trans %}Share{% endtrans %}</a></div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <div class="mt-2">
+                                        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+                                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                    </div>
+                                </li>
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <li class="d-flex align-items-center">
+                                        <a class="btn btn-warning text-dark" href="{{ path('article_edit', {'id': article.id}) }}">{% trans %}Update{% endtrans %}</a>
+                                    </li>
+                                    <li class="d-flex align-items-center">
+                                        {{ include('article/_delete_form.html.twig') }}
+                                    </li>
+                                {% endif %}
                             </ul>
                         </div>
 

@@ -170,10 +170,11 @@
                             {{ site_presentation }}
                         </p>
                         <div class="social-links mt-3">
-                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                            <a href="{{ twitter_url }}" class="twitter"><i class="bx bxl-twitter"></i></a>
+                            <a href="{{ facebook_url }}" class="facebook"><i class="bx bxl-facebook"></i></a>
+                            <a href="{{ instagram_url }}" class="instagram"><i class="bx bxl-instagram"></i></a>
+                            <a href="{{ linkedin_url }}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                            <a href="{{ github_url }}" class="github"><i class="bx bxl-github"></i></a>
                             <a href="{{ path('rss_feed') }}" class="rss"><i class="bi bi-rss"></i></a>
                         </div>
                         <p class="justify-content-end d-flex small fst-italic">V {{ site_version }}</p>
@@ -192,7 +193,12 @@
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Designed by <a href="https://bootstrapmade.com/" taget="_blank">BootstrapMade</a> | 
+                Images <a href="https://pixabay.com/" taget="_blank">Pixabay</a> | 
+                <a href="https://www.gnu.org/licenses/gpl-3.0.fr.html" target="_blank">
+                    <img src="{{ asset('img/gpl4-icon.png') }}" class="img-fluid" alt="GPLv3">
+                </a> | 
+                <a href="{{ github_repo }}" target="_blank">Source code on Github</a>
             </div>
         </div>
     </footer><!-- End Footer -->

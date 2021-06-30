@@ -750,31 +750,35 @@
       </trans-unit>
       <trans-unit id="aS4hs5k" resname="Links index">
         <source>Links index</source>
-        <target>__Links index</target>
+        <target>Index des liens web</target>
       </trans-unit>
       <trans-unit id="0Oit8cX" resname="Link index">
         <source>Link index</source>
-        <target>__Link index</target>
+        <target>Index des liens web</target>
       </trans-unit>
       <trans-unit id="LQM.MIO" resname="Create new link">
         <source>Create new link</source>
-        <target>__Create new link</target>
+        <target>Créer un nouveau lien web</target>
       </trans-unit>
       <trans-unit id="VdplqFW" resname="LINKS">
         <source>LINKS</source>
-        <target>__LINKS</target>
+        <target>LIENS WEB</target>
       </trans-unit>
       <trans-unit id="PDXlYBS" resname="Links list">
         <source>Links list</source>
-        <target>__Links list</target>
+        <target>Liste des liens web</target>
       </trans-unit>
       <trans-unit id="mO4N_zO" resname="New link">
         <source>New link</source>
-        <target>__New link</target>
+        <target>Nouveau lien web</target>
       </trans-unit>
       <trans-unit id="kCTBl9h" resname="Links">
         <source>Links</source>
-        <target>__Links</target>
+        <target>Liens web</target>
+      </trans-unit>
+      <trans-unit id="kCTBl9i" resname="Is it active?">
+        <source>Is it active?</source>
+        <target>Cet article est-il actif ?</target>
       </trans-unit>
     </body>
   </file>
