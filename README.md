@@ -52,19 +52,19 @@ If you add any language, don't forget to update config/services.yaml adding the 
 
 ## To initialize the project 
 * clone the repository: `git clone https://github.com/citizenz7/blog.git`
+* Install all packages : `composer install`
 * set up a `.env.local` file from `.env` with:
     * MySQL credentials, server address, server port, database name
     * MAILER_DSN info to send emails (i use Mailhog for dev and a SMTP server for prod)
 * Create new database: `symfony console doctrine:database:create`
 * Build the migration: `symfony console make:migration`
 * Export into MySQL: `symfony console doctrine:migrations:migrate`
-* Install all packages : `composer install`
 * Install CKEditor : `symfony console ckeditor:install`
 * Install CKEditor assets : `symfony console assets:install public`
 * Install Elfinder (file browser for CKEditor) : `symfony console elfinder:install`
 * Change to PRODUCTION in `.env.local` (APP_ENV=prod)
 * Empty cache : `symfony console cache:clear`
-* register a first account (/register) then change its role to ["ROLE_ADMIN"] in database
-* login with this admin account and connect to admin dashboard (/login)
+* Register a first account (/register) then change its role to ["ROLE_ADMIN"] in database
+* Login with this admin account and connect to admin dashboard (/login)
 * ... then start to create new categories and new articles
-* tags will be automaticaly created as you write them (SELECT2 JQuery plugin)
+* Tags will be automaticaly created as you write them (SELECT2 JQuery plugin)

@@ -273,6 +273,10 @@
         <source>Password</source>
         <target>Contraseña</target>
       </trans-unit>
+      <trans-unit id="WsJl85a" resname="Confirm password">
+        <source>Confirm password</source>
+        <target>Confirmar Contraseña</target>
+      </trans-unit>
       <trans-unit id="v9QCsvb" resname="Sign in">
         <source>Sign in</source>
         <target>Registrarse</target>
@@ -703,6 +707,26 @@
       <trans-unit id="r9gMWhu" resname="Posted">
         <source>Posted</source>
         <target>Publicado</target>
+      </trans-unit>
+      <trans-unit id="nELiYXc" resname="Password lost?">
+        <source>Password lost?</source>
+        <target>¿Contraseña perdida?</target>
+      </trans-unit>
+      <trans-unit id="6WjzSgl" resname="Thank you for your registration ! You will quickly receive an email to validate your address.">
+        <source>Thank you for your registration ! You will quickly receive an email to validate your address.</source>
+        <target>Gracias por su registro ! Recibirás rápidamente un correo electrónico para validar tu dirección.</target>
+      </trans-unit>
+      <trans-unit id="4L37xr7" resname="Your email address has been verified. You're logged in.">
+        <source>Your email address has been verified. You're logged in.</source>
+        <target>Tu dirección de email ha sido verificada. Estás conectado.</target>
+      </trans-unit>
+      <trans-unit id="Il4.Cjw" resname="Then please sign-in.">
+        <source>Then please sign-in.</source>
+        <target>Entonces inicie sesión.</target>
+      </trans-unit>
+      <trans-unit id="Il4.Cjx" resname="User edited with success!">
+        <source>User edited with success!</source>
+        <target>¡Usuario editado con éxito!</target>
       </trans-unit>
     </body>
   </file>

@@ -277,6 +277,10 @@
         <source>Password</source>
         <target>Password</target>
       </trans-unit>
+      <trans-unit id="WsJl85a" resname="Confirm password">
+        <source>Confirm password</source>
+        <target>Confirm password</target>
+      </trans-unit>
       <trans-unit id="v9QCsvb" resname="Sign in">
         <source>Sign in</source>
         <target>Sign in</target>
@@ -698,6 +702,26 @@
       <trans-unit id="r9gMWhu" resname="Posted">
         <source>Posted</source>
         <target>Posted</target>
+      </trans-unit>
+      <trans-unit id="nELiYXc" resname="Password lost?">
+        <source>Password lost?</source>
+        <target>Password lost?</target>
+      </trans-unit>
+      <trans-unit id="6WjzSgl" resname="Thank you for your registration ! You will quickly receive an email to validate your address.">
+        <source>Thank you for your registration ! You will quickly receive an email to validate your address.</source>
+        <target>Thank you for your registration ! You will quickly receive an email to validate your address.</target>
+      </trans-unit>
+      <trans-unit id="4L37xr7" resname="Your email address has been verified. You're logged in.">
+        <source>Your email address has been verified. You're logged in.</source>
+        <target>Your email address has been verified. You're logged in.</target>
+      </trans-unit>
+      <trans-unit id="Il4.Cjw" resname="Then please sign-in.">
+        <source>Then please sign-in.</source>
+        <target>Then please sign-in.</target>
+      </trans-unit>
+      <trans-unit id="Il4.Cjx" resname="User edited with success!">
+        <source>User edited with success!</source>
+        <target>User edited with success!</target>
       </trans-unit>
     </body>
   </file>

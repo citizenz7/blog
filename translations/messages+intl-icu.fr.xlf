@@ -87,11 +87,11 @@
       </trans-unit>
       <trans-unit id="v9QCsvb" resname="Sign in">
         <source>Sign in</source>
-        <target>S'identifier</target>
+        <target>Connexion</target>
       </trans-unit>
       <trans-unit id="XiuOllA" resname="Sign up">
         <source>Sign up</source>
-        <target>S'inscrire</target>
+        <target>Inscription</target>
       </trans-unit>
       <trans-unit id="5p4GFEh" resname="Terms of service">
         <source>Terms of service</source>
@@ -329,6 +329,10 @@
         <source>Password</source>
         <target>Mot de passe</target>
       </trans-unit>
+      <trans-unit id="WsJl85a" resname="Confirm password">
+        <source>Confirm password</source>
+        <target>Confirmer le mot de passe</target>
+      </trans-unit>
       <trans-unit id="skvmNPq" resname="Useful Links">
         <source>Useful Links</source>
         <target>Liens utiles</target>
@@ -495,11 +499,11 @@
       </trans-unit>
       <trans-unit id="2Cys4gg" resname="sign-up">
         <source>sign-up</source>
-        <target>s'enregistrer</target>
+        <target>inscription</target>
       </trans-unit>
       <trans-unit id="PMCOvp1" resname="Sign-up">
         <source>Sign-up</source>
-        <target>S'engregister</target>
+        <target>Inscription</target>
       </trans-unit>
       <trans-unit id="fS_tjMM" resname="Agree terms of service">
         <source>Agree terms of service</source>
@@ -507,7 +511,7 @@
       </trans-unit>
       <trans-unit id="u3I07BJ" resname="Register">
         <source>Register</source>
-        <target>S'enregistrer</target>
+        <target>Inscription</target>
       </trans-unit>
       <trans-unit id="yUebZSk" resname="disclaimer">
         <source>disclaimer</source>
@@ -703,6 +707,34 @@
       <trans-unit id="r9gMWhu" resname="Posted">
         <source>Posted</source>
         <target>Posté</target>
+      </trans-unit>
+      <trans-unit id="nELiYXc" resname="Password lost?">
+        <source>Password lost?</source>
+        <target>Mot de passe perdu ?</target>
+      </trans-unit>
+      <trans-unit id="6WjzSgl" resname="Thank you for your registration ! You will quickly receive an email to validate your address.">
+        <source>Thank you for your registration ! You will quickly receive an email to validate your address.</source>
+        <target>Merci pour votre inscription ! Vous allez rapidement recevoir un e-mail afin de valider votre adresse.</target>
+      </trans-unit>
+      <trans-unit id="4L37xr7" resname="Your email address has been verified. You're logged in.">
+        <source>Your email address has been verified. You're logged in.</source>
+        <target>Votre adresse e-mail a été vérifiée. Vous êtes connecté(e).</target>
+      </trans-unit>
+      <trans-unit id="Il4.Cjw" resname="Then please sign-in.">
+        <source>Then please sign-in.</source>
+        <target>Veuillez alors vous connecter.</target>
+      </trans-unit>
+      <trans-unit id="Il4.Cjx" resname="User edited with success!">
+        <source>User edited with success!</source>
+        <target>Utilisateur modifié avec succès !</target>
+      </trans-unit>
+      <trans-unit id="Il4.Cjy" resname="Update">
+        <source>Update</source>
+        <target>Modifier</target>
+      </trans-unit>
+      <trans-unit id="Il4.Cjz" resname="Save">
+        <source>Save</source>
+        <target>Enregistrer</target>
       </trans-unit>
     </body>
   </file>

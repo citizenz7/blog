@@ -1,7 +1,7 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
     <div class="my-3">
-        <button class="btn btn-sm btn-success">{{ button_label|default('Save') }}</button> 
+        <button class="btn btn-sm btn-success">{{ button_label|default('Save')|trans }}</button> 
         <button class="btn btn-sm btn-secondary" type="reset">{% trans %}Reset{% endtrans %}</button> 
         <a class="btn btn-sm btn-primary" href="{{ path('comment_admin_index') }}">{% trans %}Back to list{% endtrans %}</a>
     </div>

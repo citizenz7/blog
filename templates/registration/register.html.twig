@@ -30,6 +30,13 @@
                     <div class="alert alert-danger" role="alert">{{ flashError }}</div>
                     {% endfor %}
 
+                    {% for msg in app.session.flashBag.get('successRegister') %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ msg|trans }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+
                     <div class="d-flex justify-content-center">
                         <h1 class="mb-4">{% trans %}Sign-up{% endtrans %}</h1>
                     </div>
