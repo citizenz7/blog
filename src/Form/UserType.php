@@ -110,6 +110,14 @@ class UserType extends AbstractType
                     'placeholder' => 'Your Youtube profile'
                 ]
             ])
+            ->add('discord', UrlType::class, [
+                'label' => false,
+                'required' => false,
+                'attr' => [
+                    'class' => 'form-control mb-3',
+                    'placeholder' => 'Your Discord full URL ID'
+                ]
+            ])
         ;
     }
 

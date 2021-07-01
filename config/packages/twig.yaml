@@ -27,6 +27,7 @@ twig:
         facebook_url: ''
         instagram_url: ''
         linkedin_url: ''
+        discord_url: ''
 
 when@test:
     twig:

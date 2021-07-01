@@ -99,6 +99,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $youtube;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $discord;
+
 
     public function __construct()
     {
@@ -352,6 +357,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setYoutube(?string $youtube): self
     {
         $this->youtube = $youtube;
+
+        return $this;
+    }
+
+    public function getDiscord(): ?string
+    {
+        return $this->discord;
+    }
+
+    public function setDiscord(string $discord): self
+    {
+        $this->discord = $discord;
 
         return $this;
     }

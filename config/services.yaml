@@ -7,7 +7,7 @@ parameters:
     articles_images_directory: '%kernel.project_dir%/public/uploads/images/articles'
     articles_files_directory: '%kernel.project_dir%/public/uploads/files/articles'
     users_images_directory: '%kernel.project_dir%/public/uploads/images/users'
-    app.locales: [en, fr, es]
+    app.locales: [en, fr]
 
 services:
     # default configuration for services in *this* file

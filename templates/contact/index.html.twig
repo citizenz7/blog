@@ -35,24 +35,31 @@
                     </div>
                     {% endfor %}
 
-                    <div class="mb-3 p-3 bg-primary rounded text-white text-center fs-3">
-                        <i class="bi bi-envelope-fill"></i> {% trans %}Contact-us by mail{% endtrans %}
-                    </div>
 
                     <div class="card px-3 pt-3 pb-2 mb-4">
-                        <p>
-                            {% trans %}Hello there,{% endtrans %}<br>
-                            {% trans %}Please use the form below to contact us.{% endtrans %}<br>
-                            {% trans %}We'll answer you as soon as possible.{% endtrans %}<br>
-                            <span class="small fst-italic">{{ site_name_full }}</span>
+                        <p class="lead">
+                            <img src="{{ asset('img/contact.png') }}" alt="Contact" class="img-fluid float-start me-5">
+                            <span class="fs-1 fw-bold">Contact-us by mail</span>
+                            <br><br>
+                            {% trans %}Hello there,{% endtrans %}
+                            <br>
+                            {% trans %}Please use the form below to contact us.{% endtrans %} 
+                            {% trans %}We'll answer you as soon as possible.{% endtrans %}
+                            <span class="small fst-italic d-flex justify-content-end mt-3">{{ site_name_full }}</span>
                         </p>
                     </div>
 
                     {{ form_start(our_form) }}
-                        {% trans %}Name{% endtrans %}:<br>
-                        {{ form_row(our_form.name, {'label': false}) }}
-                        {% trans %}Email{% endtrans %}:<br>
-                        {{ form_row(our_form.email, {'label': false}) }}
+                        <div class="row">
+                            <div class="col">
+                                {% trans %}Name{% endtrans %}:<br>
+                                {{ form_row(our_form.name, {'label': false}) }}
+                            </div>
+                            <div class="col">
+                                {% trans %}Email{% endtrans %}:<br>
+                                {{ form_row(our_form.email, {'label': false}) }}
+                            </div>
+                        </div>
                         {% trans %}Your message{% endtrans %}:<br>
                         {{ form_row(our_form.message, {'label': false}) }}
                         {% trans %}Please copy antispam code{% endtrans %}: 
