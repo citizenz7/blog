@@ -387,7 +387,7 @@
       </trans-unit>
       <trans-unit id="jQc5Dxf" resname="Contact-us by mail">
         <source>Contact-us by mail</source>
-        <target>Nous contacter par mail</target>
+        <target>Nous contacter</target>
       </trans-unit>
       <trans-unit id="ew0tjlL" resname="Hello there,">
         <source>Hello there,</source>
